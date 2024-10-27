@@ -18,7 +18,6 @@ class AuthController extends Controller
         if ($user != null) {
             $passwordMatch = Hash::check($password, $user->password);
             if ($passwordMatch) {
-
                 Auth::login($user);
                 if (Auth::user()->role == UserRole::ADMIN->value) {
                     return redirect("/admin");
