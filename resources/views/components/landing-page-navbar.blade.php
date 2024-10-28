@@ -1,5 +1,5 @@
 <header class="bg-black text-white py-3">
-    <div class="container mx-auto flex justify-between items-center">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div class="flex items-center space-x-4">
             <a href="#" class="text-sm">Ugize Ikibazo</a>
             <span class="text-sm">|</span>
@@ -7,7 +7,7 @@
             <span class="text-sm">|</span>
             <a href="mailto:info@ncda.gov.rw" class="text-sm">info@ncda.gov.rw</a>
         </div>
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4 mt-2 md:mt-0">
             <a href="/login" class="text-sm">Kwingira</a>
             <a href="/auth/register" class="text-sm">Iyandikishe</a>
             <a href="#" class="text-sm">Ururimi</a>
@@ -15,18 +15,29 @@
     </div>
 </header>
 <nav class="bg-white shadow">
-    <div class="container mx-auto flex justify-between items-center py-4">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/">
             <h1 class="text-2xl font-bold text-black">{{env('APP_NAME')}}</h1>
         </a>
-        <ul class="flex space-x-8 text-black">
-            <li><a href="/" class="text-sm">Ahabanza</a></li>
-            <li><a href="/#" class="text-sm">Kwiga</a></li>
-            <li><a href="/#" class="text-sm">Politiki Yacu</a></li>
-            <li><a href="/#" class="text-sm">Raporo Ihoterwa</a></li>
-            <li><a href="/#" class="text-sm">Ibyerekeye Twe</a></li>
-            <li><a href="/#" class="text-sm">Twandikire</a></li>
-        </ul>
-        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded">Dushyigikire</a>
+        <button data-collapse-toggle="navbar-default" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul class="flex flex-col md:flex-row md:space-x-8 text-black mt-4 md:mt-0">
+                <li><a href="/" class="text-sm">Ahabanza</a></li>
+                <li><a href="/#" class="text-sm">Kwiga</a></li>
+                <li><a href="/#" class="text-sm">Politiki Yacu</a></li>
+                <li><a href="/#" class="text-sm">Raporo Ihoterwa</a></li>
+                <li><a href="/#" class="text-sm">Ibyerekeye Twe</a></li>
+                <li><a href="/#" class="text-sm">Twandikire</a></li><a href="#"
+                    class="mt-4 md:mt-0 px-4 py-2 bg-blue-500 text-white rounded">Dushyigikire</a>
+            </ul>
+        </div>
     </div>
 </nav>
