@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRole;
+use App\Http\Requests\CourseRequest;
 use App\Models\Course;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -12,54 +17,55 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        if (Auth::user()->role == UserRole::ADMIN->value) {
+            $courses = Course::all();
+            return view('admin.e-learning', compact('courses'));
+        } elseif (Auth::user()->role == UserRole::COMMUNITY->value) {
+            # code...
+        } else {
+            # code...
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
-        //
+        Course::create([
+            "name" => $request->input('name'),
+            "description" => $request->input('description'),
+        ]);
+
+        return redirect('/admin/e-learning')->with('success', 'Course created');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Course $course)
+    public function show(string $id)
     {
-        //
-    }
+        $course = Course::find($id);
+        $course->load('lessons');
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Course $course)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Course $course)
-    {
-        //
+        if ($course) {
+            return view('admin.course.index', compact('course'));
+        } else {
+            return redirect()->back()->withErrors('Training not found');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Course $course)
+    public function destroy(string $id)
     {
-        //
+        $course = Course::find($id);
+        if ($course) {
+            $course->delete();
+            return redirect('/admin/e-learning')->with('success', 'Course deleted successfully.');
+        } else {
+            return redirect('/admin/e-learning')->withErrors('Course not found');
+        }
     }
 }

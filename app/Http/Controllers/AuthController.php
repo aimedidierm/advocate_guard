@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\UserRole;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -42,5 +43,19 @@ class AuthController extends Controller
         } else {
             return back();
         }
+    }
+
+    public function register(RegisterRequest $request)
+    {
+        User::create(
+            [
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'role' => $request->input('role'),
+                'password' => bcrypt($request->input('password')),
+            ]
+        );
+
+        return redirect()->route('login')->with('success', 'Your account created successfully!');
     }
 }

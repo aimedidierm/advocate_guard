@@ -31,9 +31,8 @@
                         class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Sign in to your account
                     </h1>
+                    <x-message-component />
                     <form class="space-y-4 md:space-y-6" action="/auth/login" method="POST">
-                        @if($errors->any())<span
-                            class="self-center text-1xl font-semibold whitespace-nowrap text-red-600 dark:text-red-600">{{$errors->first()}}</span>@endif
                         @csrf
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
