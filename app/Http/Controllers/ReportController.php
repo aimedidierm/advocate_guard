@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRole;
 use App\Models\Report;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
@@ -12,15 +14,12 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        if (Auth::user()->role == UserRole::ADMIN->value) {
+            $reports = Report::all();
+            return view('admin.reports.index', compact('reports'));
+        } else {
+            # code...
+        }
     }
 
     /**
@@ -34,32 +33,18 @@ class ReportController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Report $report)
+    public function show(string $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Report $report)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Report $report)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Report $report)
-    {
-        //
+        $report = Report::find($id);
+        $report->load('user');
+        if ($report) {
+            if (Auth::user()->role == UserRole::ADMIN->value) {
+                return view('admin.reports.details', compact('report'));
+            } else {
+                # code...
+            }
+        } else {
+            return redirect()->back()->withErrors('Report not found');
+        }
     }
 }

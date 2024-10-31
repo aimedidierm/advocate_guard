@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,6 +32,8 @@ Route::group(
         Route::resource('/e-learning', CourseController::class)->only('index', 'store', 'destroy');
         Route::get('/e-learning/course/{id}', [CourseController::class, 'show']);
         Route::resource('/e-learning/course/lesson', LessonController::class)->only('index', 'store', 'show', 'destroy');
+        Route::resource('/users', UserController::class)->only('index', 'destroy');
+        Route::resource('/reporting', ReportController::class)->only('index', 'show');
     }
 );
 
