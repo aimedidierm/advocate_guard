@@ -14,7 +14,7 @@
     aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <ul cass="space-y-2 font-medium">
-            <li>
+            {{-- <li>
                 <a href="/child"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <span class="material-symbols-outlined">
@@ -22,7 +22,7 @@
                     </span>
                     <span class="ml-3">Dashboard</span>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="/child/reporting"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -41,7 +41,7 @@
                     <span class="flex-1 ml-3 whitespace-nowrap">E-learning</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="/child/community"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <span class="material-symbols-outlined">
@@ -58,7 +58,7 @@
                     </span>
                     <span class="flex-1 ml-3 whitespace-nowrap">Settings</span>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="/auth/logout"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">

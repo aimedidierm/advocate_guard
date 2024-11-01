@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRole;
 use App\Http\Requests\LessonRequest;
+use App\Models\Course;
 use App\Models\Lesson;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class LessonController extends Controller
@@ -15,7 +18,8 @@ class LessonController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::with('lessons')->get();
+        return view('e-learning.index', compact('courses'));
     }
 
     /**
@@ -57,7 +61,13 @@ class LessonController extends Controller
         $lesson->load('course');
 
         if ($lesson) {
-            return view('admin.course.lesson', compact('lesson'));
+            if (Auth::user()->role == UserRole::ADMIN->value) {
+                return view('admin.course.lesson', compact('lesson'));
+            } elseif (Auth::user()->role == UserRole::COMMUNITY->value) {
+                return view('e-learning.show', compact('lesson'));
+            } else {
+                return view('e-learning.show', compact('lesson'));
+            }
         } else {
             return redirect()->back()->withErrors('Lesson not found');
         }

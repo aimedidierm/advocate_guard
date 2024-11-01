@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\UserRole;
+use App\Http\Requests\ReportRequest;
 use App\Models\Report;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,17 +18,41 @@ class ReportController extends Controller
         if (Auth::user()->role == UserRole::ADMIN->value) {
             $reports = Report::all();
             return view('admin.reports.index', compact('reports'));
+        } elseif (Auth::user()->role == UserRole::COMMUNITY->value) {
+            $reports = Report::where('user_id', Auth::id())->get();
+            return view('community.reports.index', compact('reports'));
         } else {
-            # code...
+            $reports = Report::where('user_id', Auth::id())->get();
+            return view('child.reports.index', compact('reports'));
         }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ReportRequest $request)
     {
-        //
+        $report = new Report();
+        $report->subject = $request->subject;
+        $report->description = $request->description;
+        $report->victim = $request->victim;
+        $report->location = $request->location;
+        $report->when = $request->when;
+        $report->leaning = $request->leaning;
+        $report->category = $request->category;
+        $report->user_id = Auth::id();
+        if ($request->hasFile('attachments')) {
+            $attachments = [];
+            foreach ($request->file('attachments') as $file) {
+                $path = $file->store('attachments', 'public');
+                $attachments[] = $path;
+            }
+            $report->attachments = json_encode($attachments);
+        }
+
+        $report->save();
+
+        return redirect()->route('reports.index')->with('success', 'Report created successfully.');
     }
 
     /**
@@ -40,8 +65,10 @@ class ReportController extends Controller
         if ($report) {
             if (Auth::user()->role == UserRole::ADMIN->value) {
                 return view('admin.reports.details', compact('report'));
+            } elseif (Auth::user()->role == UserRole::COMMUNITY->value) {
+                return view('community.reports.details', compact('report'));
             } else {
-                # code...
+                return view('child.reports.details', compact('report'));
             }
         } else {
             return redirect()->back()->withErrors('Report not found');

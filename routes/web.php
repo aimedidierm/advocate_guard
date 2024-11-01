@@ -5,6 +5,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
+use App\Models\Course;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -43,6 +44,9 @@ Route::group(
         Route::get('/', function () {
             return view('community.dashboard');
         });
+        Route::resource('/reporting', ReportController::class)->only('index', 'show', 'store');
+        Route::get('/e-learning', [LessonController::class, 'index']);
+        Route::get('/lessons/{id}', [LessonController::class, 'show'])->name('lessons.show');
     }
 );
 
@@ -52,5 +56,8 @@ Route::group(
         Route::get('/', function () {
             return view('child.dashboard');
         });
+        Route::resource('/reporting', ReportController::class)->only('index', 'show', 'store');
+        Route::get('/e-learning', [LessonController::class, 'index']);
+        Route::get('/lessons/{id}', [LessonController::class, 'show'])->name('lessons.show');
     }
 );
