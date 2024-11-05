@@ -58,7 +58,7 @@
                     </span>
                     <span class="flex-1 ml-3 whitespace-nowrap">Community</span>
                 </a>
-            </li>
+            </li>--}}
             <li>
                 <a href="/community/settings"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -67,7 +67,7 @@
                     </span>
                     <span class="flex-1 ml-3 whitespace-nowrap">Settings</span>
                 </a>
-            </li> --}}
+            </li>
             <li>
                 <a href="/auth/logout"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">

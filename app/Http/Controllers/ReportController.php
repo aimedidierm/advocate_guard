@@ -52,7 +52,13 @@ class ReportController extends Controller
 
         $report->save();
 
-        return redirect()->route('reports.index')->with('success', 'Report created successfully.');
+        if (Auth::user()->role == UserRole::COMMUNITY->value) {
+            return redirect('/community/reporting')->with('success', 'Report created successfully.');
+        } elseif (Auth::user()->role == UserRole::CHILD->value) {
+            return redirect('/child/reporting')->with('success', 'Report created successfully.');
+        } else {
+            # code...
+        }
     }
 
     /**

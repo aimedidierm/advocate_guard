@@ -23,6 +23,7 @@ class CourseRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'adult' => 'required|string|in:y,n',
             'description' => 'required|string',
         ];
     }

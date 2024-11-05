@@ -18,7 +18,9 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
-<body>
+<body @if (Auth::user()->role == App\Enums\UserRole::CHILD->value &&
+    request()->is('child/e-learning'))
+    style="background-image:url('/images/kids_background.png');" @endif>
     @yield('content')
     <script>
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -51,7 +53,8 @@
             }
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js">
+    </script>
 </body>
 
 </html>

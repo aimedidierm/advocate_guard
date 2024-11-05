@@ -11,7 +11,7 @@ class Course extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'adult', 'description'];
 
     /**
      * Get the lessons for the course.

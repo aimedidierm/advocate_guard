@@ -32,8 +32,15 @@ class CourseController extends Controller
      */
     public function store(CourseRequest $request)
     {
+        if ($request->input('adult') == 'y') {
+            $adult = true;
+        } else {
+            $adult = false;
+        }
+
         Course::create([
             "name" => $request->input('name'),
+            "adult" => $adult,
             "description" => $request->input('description'),
         ]);
 

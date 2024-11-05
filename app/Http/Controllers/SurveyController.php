@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRole;
 use App\Models\Survey;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SurveyController extends Controller
 {
@@ -12,7 +14,11 @@ class SurveyController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::user()->role == UserRole::ADMIN->value) {
+            return view('admin.survey.index');
+        } else {
+            # code...
+        }
     }
 
     /**

@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\UserController;
 use App\Models\Course;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ Route::group(
         Route::post('/register', [AuthController::class, 'register']);
         Route::post('/login', [AuthController::class, 'login']);
         Route::get('/logout', [AuthController::class, 'logout']);
+        Route::put('/settings', [UserController::class, 'update']);
     }
 );
 
@@ -35,6 +37,8 @@ Route::group(
         Route::resource('/e-learning/course/lesson', LessonController::class)->only('index', 'store', 'show', 'destroy');
         Route::resource('/users', UserController::class)->only('index', 'destroy');
         Route::resource('/reporting', ReportController::class)->only('index', 'show');
+        Route::view('/settings', 'auth.profile');
+        Route::resource('/survey', SurveyController::class)->only('index', 'store', 'destroy');
     }
 );
 
@@ -47,6 +51,7 @@ Route::group(
         Route::resource('/reporting', ReportController::class)->only('index', 'show', 'store');
         Route::get('/e-learning', [LessonController::class, 'index']);
         Route::get('/lessons/{id}', [LessonController::class, 'show'])->name('lessons.show');
+        Route::view('/settings', 'auth.profile');
     }
 );
 
@@ -59,5 +64,6 @@ Route::group(
         Route::resource('/reporting', ReportController::class)->only('index', 'show', 'store');
         Route::get('/e-learning', [LessonController::class, 'index']);
         Route::get('/lessons/{id}', [LessonController::class, 'show'])->name('lessons.show');
+        Route::view('/settings', 'auth.profile');
     }
 );
