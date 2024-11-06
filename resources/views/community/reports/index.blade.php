@@ -63,6 +63,14 @@
                                     required>
                             </div>
                             <div class="mb-6">
+                                <label for="when"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">When
+                                    happened</label>
+                                <input type="date" id="when" name="when"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                                    required>
+                            </div>
+                            <div class="mb-6">
                                 <label for="attachments"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Attachments</label>
                                 <input type="file" id="attachments" name="attachments[]"

@@ -32,7 +32,7 @@
                         </button>
                     </div>
                     <div class="p-6 space-y-6">
-                        <form action="/child/reports" method="POST" enctype="multipart/form-data">
+                        <form action="/child/reporting" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-6">
                                 <label for="subject"
@@ -59,6 +59,14 @@
                                 <label for="location"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
                                 <input type="text" id="location" name="location"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                                    required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="when"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">When
+                                    happened</label>
+                                <input type="date" id="when" name="when"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                     required>
                             </div>

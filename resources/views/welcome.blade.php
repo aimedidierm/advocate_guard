@@ -28,8 +28,8 @@
             class="container mx-auto h-full flex flex-col justify-center items-center text-center text-white bg-opacity-75">
             <div class="absolute inset-0 bg-black opacity-40"></div>
             <img src="/images/logo.png" alt="NCDA Logo" class="relative">
-            <h1 class="text-4xl font-bold relative">Umuvugizi</h1>
-            <h2 class="text-xl font-bold relative">Rinda uburenganzira bw’ Umwana mu Rwanda</h2>
+            <h1 class="text-4xl font-bold relative">Advocateguard</h1>
+            <h2 class="text-xl font-bold relative">Protect children right's in Rwanda</h2>
         </div>
     </section>
 
