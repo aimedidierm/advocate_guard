@@ -3,11 +3,11 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SurveyAnswerController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\UserController;
-use App\Models\Course;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -69,5 +69,15 @@ Route::group(
         Route::get('/e-learning', [LessonController::class, 'index']);
         Route::get('/lessons/{id}', [LessonController::class, 'show'])->name('lessons.show');
         Route::view('/settings', 'auth.profile');
+    }
+);
+
+Route::group(
+    ["prefix" => "platform", "middleware:auth", "as" => "platform."],
+    function () {
+        Route::get('/', [PostController::class, 'index'])->name('posts.index');
+        Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+        Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
+        Route::post('/posts/{post}/comment', [PostController::class, 'comment'])->name('posts.comment');
     }
 );

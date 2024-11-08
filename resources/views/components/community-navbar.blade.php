@@ -67,15 +67,15 @@
                     </li>
                 </ul>
             </li>
-            {{--<li>
-                <a href="/community/community"
+            <li>
+                <a href="/platform"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <span class="material-symbols-outlined">
                         contact_mail
                     </span>
                     <span class="flex-1 ml-3 whitespace-nowrap">Community</span>
                 </a>
-            </li>--}}
+            </li>
             <li>
                 <a href="/community/settings"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
