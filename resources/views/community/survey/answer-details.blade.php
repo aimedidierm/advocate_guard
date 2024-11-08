@@ -6,7 +6,8 @@
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
         <div class="flex justify-between">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$answer->survey->title}}</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$answer->survey->title}}
+            </h5>
             <a href="/community/survey-answers"
                 class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 type="button">
@@ -24,7 +25,7 @@
                     <form>
                         @foreach(json_decode($answer->survey->questions, true) as $index => $question)
                         <div class="mb-6">
-                            <label for="questions" class="block mb-2 text-sm font-medium text-gray-900">
+                            <label for="questions" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 {{ $index + 1 }}. {{ $question }}
                             </label>
 

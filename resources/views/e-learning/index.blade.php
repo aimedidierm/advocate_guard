@@ -11,9 +11,9 @@
         <h1 class="text-3xl font-bold mb-6">Courses</h1>
 
         @foreach($courses as $course)
-        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div class="shadow-md rounded-lg p-6 mb-6">
             <h2 class="text-2xl font-semibold">{{ $course->name }}</h2>
-            <p class="text-gray-700">{{ $course->description }}</p>
+            <p>{{ $course->description }}</p>
             <h3 class="text-xl font-medium mt-4">Lessons:</h3>
             <ul class="list-disc list-inside">
                 @foreach($course->lessons as $lesson)
@@ -27,7 +27,7 @@
                      " class="text-blue-500 hover:underline">
                         {{ $lesson->title }}
                     </a>
-                    <p class="text-gray-600 text-sm">{{ $lesson->description }}</p>
+                    <p class="text-sm">{{ $lesson->description }}</p>
                 </li>
                 @endforeach
             </ul>

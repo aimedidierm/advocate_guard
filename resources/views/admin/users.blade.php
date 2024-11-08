@@ -5,7 +5,7 @@
 <x-admin-navbar />
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Users management</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Users management</h5>
         <x-message-component />
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

@@ -21,7 +21,7 @@
 <body @if (Auth::user()->role == App\Enums\UserRole::CHILD->value &&
     request()->is('child/e-learning'))
     style="background-image:url('/images/kids_background.png');" @endif
-    {{-- class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100" --}}
+    class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
     >
     @yield('content')
     <script>

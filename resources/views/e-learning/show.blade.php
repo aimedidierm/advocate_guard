@@ -10,7 +10,7 @@
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
         <div class="mt-4">
             <div class="flex justify-between">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Video:</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight ">Video:</h5>
                 <a href="
                 @if (Auth::user()->role == App\Enums\UserRole::COMMUNITY->value)
                 /community/e-learning
@@ -27,7 +27,7 @@
             </video>
         </div>
         <h1 class="text-3xl font-bold mb-4">{{ $lesson->title }}</h1>
-        <p class="text-gray-700 mb-4">{{ $lesson->description }}</p>
+        <p class="mb-4">{{ $lesson->description }}</p>
     </div>
 </div>
 @endsection
