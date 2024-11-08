@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRole;
+use App\Http\Requests\SurveyAnswerRequest;
 use App\Models\SurveyAnswer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SurveyAnswerController extends Controller
 {
@@ -12,54 +15,46 @@ class SurveyAnswerController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        if (Auth::user()->role == UserRole::COMMUNITY->value) {
+            $surves = SurveyAnswer::where('user_id', Auth::id())->get();
+            $surves->load('survey');
+            return view('community.survey.answers', compact('surves'));
+        } else {
+            $surves = SurveyAnswer::all();
+            $surves->load('survey', 'user');
+            return view('admin.survey.answers', compact('surves'));
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SurveyAnswerRequest $request)
     {
-        //
+        SurveyAnswer::create([
+            'answers' => json_encode($request->input('answers')),
+            'user_id' => Auth::id(),
+            'survey_id' => $request->input('survey'),
+        ]);
+
+        return redirect('community/survey-answers')->with('success', 'Thank you for response!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(SurveyAnswer $surveyAnswer)
+    public function show(int $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SurveyAnswer $surveyAnswer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SurveyAnswer $surveyAnswer)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SurveyAnswer $surveyAnswer)
-    {
-        //
+        if (Auth::user()->role == UserRole::COMMUNITY->value) {
+            $answer = SurveyAnswer::where('user_id', Auth::id())->where('id', $id)->first();
+            $answer->load('survey');
+            return view('community.survey.answer-details', compact('answer'));
+        } elseif (Auth::user()->role == UserRole::ADMIN->value) {
+            $answer = SurveyAnswer::where('id', $id)->first();
+            $answer->load('survey');
+            return view('admin.survey.answer-details', compact('answer'));
+        } else {
+            # code...
+        }
     }
 }

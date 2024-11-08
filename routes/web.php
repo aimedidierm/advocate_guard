@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SurveyAnswerController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\UserController;
 use App\Models\Course;
@@ -38,7 +39,8 @@ Route::group(
         Route::resource('/users', UserController::class)->only('index', 'destroy');
         Route::resource('/reporting', ReportController::class)->only('index', 'show');
         Route::view('/settings', 'auth.profile');
-        Route::resource('/survey', SurveyController::class)->only('index', 'store', 'destroy');
+        Route::resource('/survey', SurveyController::class)->only('index', 'show', 'store', 'destroy');
+        Route::resource('/survey-answers', SurveyAnswerController::class)->only('index', 'show');
     }
 );
 
@@ -52,6 +54,8 @@ Route::group(
         Route::get('/e-learning', [LessonController::class, 'index']);
         Route::get('/lessons/{id}', [LessonController::class, 'show'])->name('lessons.show');
         Route::view('/settings', 'auth.profile');
+        Route::resource('/survey', SurveyController::class)->only('index', 'show');
+        Route::resource('/survey-answers', SurveyAnswerController::class)->only('index', 'show', 'store');
     }
 );
 
