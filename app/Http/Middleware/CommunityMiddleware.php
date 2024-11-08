@@ -17,7 +17,7 @@ class CommunityMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role == UserRole::ADMIN->value) {
+        if (Auth::check() && Auth::user()->role == UserRole::COMMUNITY->value) {
             return $next($request);
         }
 
