@@ -8,6 +8,9 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SurveyAnswerController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\ChildMiddleware;
+use App\Http\Middleware\CommunityMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,7 +31,7 @@ Route::group(
 );
 
 Route::group(
-    ["prefix" => "admin", "middleware:auth", "as" => "admin."],
+    ["prefix" => "admin", "middleware" => AdminMiddleware::class, "as" => "admin."],
     function () {
         Route::get('/', function () {
             return view('admin.dashboard');
@@ -45,7 +48,7 @@ Route::group(
 );
 
 Route::group(
-    ["prefix" => "community", "middleware:auth", "as" => "community."],
+    ["prefix" => "community", "middleware" => CommunityMiddleware::class, "as" => "community."],
     function () {
         Route::get('/', function () {
             return view('community.dashboard');
@@ -60,7 +63,7 @@ Route::group(
 );
 
 Route::group(
-    ["prefix" => "child", "middleware:auth", "as" => "child."],
+    ["prefix" => "child", "middleware" => ChildMiddleware::class, "as" => "child."],
     function () {
         Route::get('/', function () {
             return view('child.dashboard');
