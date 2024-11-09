@@ -27,7 +27,7 @@ class ReportRequest extends FormRequest
             'victim' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'when' => 'required|date',
-            'attachments.*' => 'file|mimes:jpg,png,pdf,doc,docx|max:2048',
+            'attachments.*' => 'required|file|mimes:jpg,png,pdf,doc,docx|max:2048',
             'leaning' => 'nullable|string|max:255',
             'category' => 'nullable|string|max:255',
         ];
