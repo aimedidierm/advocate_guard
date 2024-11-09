@@ -22,7 +22,8 @@ class Report extends Model
         'attachments',
         'leaning',
         'category',
-        'user_id'
+        'user_id',
+        'status'
     ];
 
     /**

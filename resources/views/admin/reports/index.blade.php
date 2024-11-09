@@ -6,7 +6,7 @@
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Reports</h5>
-
+        <x-message-component />
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -22,6 +22,9 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Location
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Status
                         </th>
                         <th scope="col" class="px-6 py-3">
 
@@ -51,9 +54,21 @@
                         <td class="px-6 py-4">
                             {{$item->location}}
                         </td>
+                        <td class="px-6 py-4">
+                            {{$item->status}}
+                        </td>
                         <td class="flex px-6 py-4">
                             <a href="/admin/reporting/{{$item->id}}"
                                 class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">More</a>
+                            @if ($item->status == App\Enums\ReportStatus::PENDING->value)
+                            <a href="/admin/reporting-status/viewed/{{$item->id}}"
+                                class="px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:underline">Viewed</a>
+                            @elseif($item->status == App\Enums\ReportStatus::VIEWED->value)
+                            <a href="/admin/reporting-status/resolved/{{$item->id}}"
+                                class="px-2 font-medium text-green-600 dark:text-green-500 hover:underline">Resolved</a>
+                            @else
+
+                            @endif
                         </td>
                     </tr>
                     @endforeach

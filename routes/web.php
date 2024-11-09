@@ -41,6 +41,8 @@ Route::group(
         Route::resource('/e-learning/course/lesson', LessonController::class)->only('index', 'store', 'show', 'destroy');
         Route::resource('/users', UserController::class)->only('index', 'destroy');
         Route::resource('/reporting', ReportController::class)->only('index', 'show');
+        Route::get('/reporting-status/viewed/{id}', [ReportController::class, 'viewed']);
+        Route::get('/reporting-status/resolved/{id}', [ReportController::class, 'resolved']);
         Route::view('/settings', 'auth.profile');
         Route::resource('/survey', SurveyController::class)->only('index', 'show', 'store', 'destroy');
         Route::resource('/survey-answers', SurveyAnswerController::class)->only('index', 'show');

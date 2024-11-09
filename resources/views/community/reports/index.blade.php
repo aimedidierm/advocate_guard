@@ -125,6 +125,9 @@
                             Location
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
 
                         </th>
                     </tr>
@@ -151,6 +154,9 @@
                         </td>
                         <td class="px-6 py-4">
                             {{$item->location}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{$item->status}}
                         </td>
                         <td class="flex px-6 py-4">
                             <a href="/community/reporting/{{$item->id}}"

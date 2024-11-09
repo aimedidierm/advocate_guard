@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\ReportStatus;
 use App\Enums\UserRole;
 use App\Http\Requests\ReportRequest;
 use App\Models\Report;
@@ -78,6 +79,30 @@ class ReportController extends Controller
             }
         } else {
             return redirect()->back()->withErrors('Report not found');
+        }
+    }
+
+    public function viewed(int $id)
+    {
+        $report = Report::find($id);
+        if ($report) {
+            $report->status = ReportStatus::VIEWED->value;
+            $report->update();
+            return redirect('/admin/reporting')->with('success', 'Report updated successfully.');
+        } else {
+            return redirect('/admin/reporting')->withErrors('Report not found');
+        }
+    }
+
+    public function resolved(int $id)
+    {
+        $report = Report::find($id);
+        if ($report) {
+            $report->status = ReportStatus::RESOLVED->value;
+            $report->update();
+            return redirect('/admin/reporting')->with('success', 'Report updated successfully.');
+        } else {
+            return redirect('/admin/reporting')->withErrors('Report not found');
         }
     }
 }
