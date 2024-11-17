@@ -36,11 +36,11 @@
             <ul class="flex flex-col md:flex-row md:space-x-8 text-black mt-4 md:mt-0">
                 <li><a href="/" class="text-sm">{{ __('messages.landingpage.home') }}</a></li>
                 <li><a href="/#" class="text-sm">{{ __('messages.landingpage.e-learning') }}</a></li>
-                <li><a href="/#" class="text-sm">{{ __('messages.landingpage.our-policy') }}</a></li>
+                <li><a href="/our-policy" class="text-sm">{{ __('messages.landingpage.our-policy') }}</a></li>
                 <li><a href="/#" class="text-sm">{{ __('messages.landingpage.report-abuse') }}</a></li>
                 <li><a href="/campaign" class="text-sm">{{ __('messages.landingpage.campaign') }}</a></li>
-                <li><a href="/#" class="text-sm">{{ __('messages.landingpage.about-us') }}</a></li>
-                <li><a href="/#" class="text-sm">{{ __('messages.landingpage.contact') }}</a></li>
+                <li><a href="/about-us" class="text-sm">{{ __('messages.landingpage.about-us') }}</a></li>
+                <li><a href="/contact-us" class="text-sm">{{ __('messages.landingpage.contact') }}</a></li>
                 <a href="#" class="mt-4 md:mt-0 px-4 py-2 bg-blue-500 text-white rounded">
                     {{__('messages.landingpage.donate')}}
                 </a>

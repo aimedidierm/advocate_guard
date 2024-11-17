@@ -15,6 +15,9 @@
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <ul cass="space-y-2 font-medium">
             <li>
+                <img src="/images/logo.png" alt="Logo">
+            </li>
+            <li>
                 <a href="/community"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <span class="material-symbols-outlined">

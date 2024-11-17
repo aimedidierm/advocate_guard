@@ -16,11 +16,11 @@ class SurveyAnswerController extends Controller
     public function index()
     {
         if (Auth::user()->role == UserRole::COMMUNITY->value) {
-            $surves = SurveyAnswer::where('user_id', Auth::id())->get();
+            $surves = SurveyAnswer::where('user_id', Auth::id())->paginate(10);
             $surves->load('survey');
             return view('community.survey.answers', compact('surves'));
         } else {
-            $surves = SurveyAnswer::all();
+            $surves = SurveyAnswer::paginate(10);
             $surves->load('survey', 'user');
             return view('admin.survey.answers', compact('surves'));
         }

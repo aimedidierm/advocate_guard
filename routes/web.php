@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
@@ -32,6 +33,9 @@ Route::group(
         Route::view('/login', 'auth.login')->name('login');
         Route::get('/campaign', [CampaignController::class, 'landingPage']);
         Route::get('/campaign-details/{id}', [CampaignController::class, 'campaignDetails']);
+        Route::view('/about-us', 'about-us');
+        Route::view('/contact-us', 'contact-us');
+        Route::view('/our-policy', 'our-policy');
 
         Route::group(
             ["prefix" => "auth", "as" => "auth."],
@@ -47,9 +51,7 @@ Route::group(
         Route::group(
             ["prefix" => "admin", "middleware" => AdminMiddleware::class, "as" => "admin."],
             function () {
-                Route::get('/', function () {
-                    return view('admin.dashboard');
-                });
+                Route::get('/', [DashboardController::class, 'admin']);
                 Route::resource('/e-learning', CourseController::class)->only('index', 'store', 'destroy');
                 Route::get('/e-learning/course/{id}', [CourseController::class, 'show']);
                 Route::resource('/e-learning/course/lesson', LessonController::class)->only('index', 'store', 'show', 'destroy');
@@ -68,9 +70,7 @@ Route::group(
         Route::group(
             ["prefix" => "community", "middleware" => CommunityMiddleware::class, "as" => "community."],
             function () {
-                Route::get('/', function () {
-                    return view('community.dashboard');
-                });
+                Route::get('/', [DashboardController::class, 'community']);
                 Route::resource('/reporting', ReportController::class)->only('index', 'show', 'store');
                 Route::get('/e-learning', [LessonController::class, 'index']);
                 Route::get('/lessons/{id}', [LessonController::class, 'show'])->name('lessons.show');
@@ -83,9 +83,7 @@ Route::group(
         Route::group(
             ["prefix" => "child", "middleware" => ChildMiddleware::class, "as" => "child."],
             function () {
-                Route::get('/', function () {
-                    return view('child.dashboard');
-                });
+                Route::get('/', [DashboardController::class, 'child']);
                 Route::resource('/reporting', ReportController::class)->only('index', 'show', 'store');
                 Route::get('/e-learning', [LessonController::class, 'index']);
                 Route::get('/lessons/{id}', [LessonController::class, 'show'])->name('lessons.show');

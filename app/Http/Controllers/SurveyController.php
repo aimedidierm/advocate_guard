@@ -15,10 +15,10 @@ class SurveyController extends Controller
     public function index()
     {
         if (Auth::user()->role == UserRole::ADMIN->value) {
-            $surves = Survey::all();
+            $surves = Survey::paginate(10);
             return view('admin.survey.index', compact('surves'));
         } elseif (Auth::user()->role == UserRole::COMMUNITY->value) {
-            $surves = Survey::all();
+            $surves = Survey::paginate(10);
             return view('community.survey.index', compact('surves'));
         } else {
             # code...

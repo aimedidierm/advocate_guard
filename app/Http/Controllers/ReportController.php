@@ -17,13 +17,13 @@ class ReportController extends Controller
     public function index()
     {
         if (Auth::user()->role == UserRole::ADMIN->value) {
-            $reports = Report::all();
+            $reports = Report::paginate(10);
             return view('admin.reports.index', compact('reports'));
         } elseif (Auth::user()->role == UserRole::COMMUNITY->value) {
-            $reports = Report::where('user_id', Auth::id())->get();
+            $reports = Report::where('user_id', Auth::id())->paginate(10);
             return view('community.reports.index', compact('reports'));
         } else {
-            $reports = Report::where('user_id', Auth::id())->get();
+            $reports = Report::where('user_id', Auth::id())->paginate(10);
             return view('child.reports.index', compact('reports'));
         }
     }

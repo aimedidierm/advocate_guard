@@ -19,9 +19,9 @@ class LessonController extends Controller
     public function index()
     {
         if (Auth::user()->role == UserRole::COMMUNITY->value) {
-            $courses = Course::where('adult', true)->with('lessons')->get();
+            $courses = Course::where('adult', true)->with('lessons')->paginate(10);
         } else {
-            $courses = Course::where('adult', false)->with('lessons')->get();
+            $courses = Course::where('adult', false)->with('lessons')->paginate(10);
         }
 
         return view('e-learning.index', compact('courses'));

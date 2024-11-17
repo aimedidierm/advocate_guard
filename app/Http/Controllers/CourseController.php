@@ -18,7 +18,7 @@ class CourseController extends Controller
     public function index()
     {
         if (Auth::user()->role == UserRole::ADMIN->value) {
-            $courses = Course::all();
+            $courses = Course::paginate(10);
             return view('admin.e-learning', compact('courses'));
         } elseif (Auth::user()->role == UserRole::COMMUNITY->value) {
             # code...
@@ -58,7 +58,7 @@ class CourseController extends Controller
         if ($course) {
             return view('admin.course.index', compact('course'));
         } else {
-            return redirect()->back()->withErrors('Training not found');
+            return redirect()->back()->withErrors('Course not found');
         }
     }
 
