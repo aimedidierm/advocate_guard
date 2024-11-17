@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Enums\ReportStatus;
 use App\Enums\UserRole;
 use App\Http\Requests\ReportRequest;
+use App\Mail\ReportAbuseMail;
+use App\Mail\ResolvedReportAbuseMail;
+use App\Mail\ViewedReportAbuseMail;
 use App\Models\Report;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ReportController extends Controller
 {
@@ -53,6 +58,10 @@ class ReportController extends Controller
 
         $report->save();
 
+        $adminDetails = User::where('role', UserRole::ADMIN->value)->first();
+
+        Mail::to($adminDetails->email)->send(new ReportAbuseMail($report));
+
         if (Auth::user()->role == UserRole::COMMUNITY->value) {
             return redirect('/community/reporting')->with('success', 'Report created successfully.');
         } elseif (Auth::user()->role == UserRole::CHILD->value) {
@@ -88,6 +97,11 @@ class ReportController extends Controller
         if ($report) {
             $report->status = ReportStatus::VIEWED->value;
             $report->update();
+
+            $userDetails = User::find($report->user_id);
+
+            Mail::to($userDetails->email)->send(new ViewedReportAbuseMail($report));
+
             return redirect('/admin/reporting')->with('success', 'Report updated successfully.');
         } else {
             return redirect('/admin/reporting')->withErrors('Report not found');
@@ -100,6 +114,11 @@ class ReportController extends Controller
         if ($report) {
             $report->status = ReportStatus::RESOLVED->value;
             $report->update();
+
+            $userDetails = User::find($report->user_id);
+
+            Mail::to($userDetails->email)->send(new ResolvedReportAbuseMail($report));
+
             return redirect('/admin/reporting')->with('success', 'Report updated successfully.');
         } else {
             return redirect('/admin/reporting')->withErrors('Report not found');
