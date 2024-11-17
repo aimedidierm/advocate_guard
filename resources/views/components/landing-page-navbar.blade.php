@@ -1,16 +1,20 @@
 <header class="bg-black text-white py-3">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div class="flex items-center space-x-4">
-            <a href="#" class="text-sm">Have a questions?</a>
+            <a href="/" class="text-sm">{{ __('messages.landingpage.question') }}</a>
             <span class="text-sm">|</span>
             <span class="text-sm">711</span>
             <span class="text-sm">|</span>
             <a href="mailto:info@ncda.gov.rw" class="text-sm">info@ncda.gov.rw</a>
         </div>
         <div class="flex items-center space-x-4 mt-2 md:mt-0">
-            <a href="/login" class="text-sm">Login</a>
-            <a href="/auth/register" class="text-sm">Register</a>
-            <a href="#" class="text-sm">Language</a>
+            <a href="/login" class="text-sm">{{ __('messages.landingpage.login') }}</a>
+            <a href="/auth/register" class="text-sm">{{ __('messages.landingpage.logout') }}</a>
+            @if (session('locale') == 'rw')
+            <a href="{{ url('/switch-language/en') }}" class="text-sm">English</a>
+            @else
+            <a href="{{ url('/switch-language/rw') }}" class="text-sm">Kinyarwanda</a>
+            @endif
         </div>
     </div>
 </header>
@@ -30,13 +34,15 @@
         </button>
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col md:flex-row md:space-x-8 text-black mt-4 md:mt-0">
-                <li><a href="/" class="text-sm">Home</a></li>
-                <li><a href="/#" class="text-sm">E-learning</a></li>
-                <li><a href="/#" class="text-sm">Our policy</a></li>
-                <li><a href="/#" class="text-sm">Report abuse</a></li>
-                <li><a href="/#" class="text-sm">About us</a></li>
-                <li><a href="/#" class="text-sm">Contact</a></li><a href="#"
-                    class="mt-4 md:mt-0 px-4 py-2 bg-blue-500 text-white rounded">Donate</a>
+                <li><a href="/" class="text-sm">{{ __('messages.landingpage.home') }}</a></li>
+                <li><a href="/#" class="text-sm">{{ __('messages.landingpage.e-learning') }}</a></li>
+                <li><a href="/#" class="text-sm">{{ __('messages.landingpage.our-policy') }}</a></li>
+                <li><a href="/#" class="text-sm">{{ __('messages.landingpage.report-abuse') }}</a></li>
+                <li><a href="/#" class="text-sm">{{ __('messages.landingpage.about-us') }}</a></li>
+                <li><a href="/#" class="text-sm">{{ __('messages.landingpage.contact') }}</a></li>
+                <a href="#" class="mt-4 md:mt-0 px-4 py-2 bg-blue-500 text-white rounded">
+                    {{__('messages.landingpage.donate')}}
+                </a>
             </ul>
         </div>
     </div>
