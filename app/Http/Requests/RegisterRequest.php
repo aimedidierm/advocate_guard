@@ -23,8 +23,15 @@ class RegisterRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'name' => 'required|string',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
             'role' => 'required|string|in:Community,Child',
+            'id_number' => 'required|string',
+            'gender' => 'required|string|in:Male,Female',
+            'phone_number' => 'required|numeric',
+            'country' => 'required|string',
+            'address' => 'required|string',
+            'password' => 'required|string',
         ];
     }
 }

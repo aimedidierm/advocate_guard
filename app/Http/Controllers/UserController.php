@@ -42,16 +42,24 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'phone_number' => 'required|numeric',
+            'country' => 'required|string',
+            'address' => 'required|string',
             'password' => 'required|string',
-            'confirmPassword' => 'required|string'
+            'confirmPassword' => 'required|string',
         ]);
         $user = User::find(Auth::id());
         if ($request->password == $request->confirmPassword) {
-            $user->name = $request->name;
+            $user->first_name = $request->first_name;
+            $user->last_name = $request->last_name;
+            $user->phone_number = $request->phone_number;
+            $user->address = $request->address;
+            $user->country = $request->country;
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
+            $user->update();
             if (Auth::user()->role == UserRole::ADMIN->value) {
                 return redirect('/admin/settings')->with('success', 'Account details updated successfully.');
             } elseif (Auth::user()->role == UserRole::COMMUNITY->value) {

@@ -12,9 +12,8 @@
 <body>
     <x-landing-page-navbar />
     <section class="bg-gray-50 dark:bg-gray-900">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto ">
-            <div
-                class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 glassmorphism">
+        <div class="flex items-center justify-center px-6 py-8 ">
+            <div class="w-1/2 bg-white">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1
@@ -25,25 +24,33 @@
                         <form class="space-y-4 md:space-y-6" action="/auth/register" method="POST">
                             @csrf
                             <div class="flex space-x-4">
-                                <div class="w-1/2">
-                                    <label for="name"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                                        names</label>
-                                    <input type="text" name="name" id="name"
+                                <div class="w-1/3">
+                                    <label for="first_name"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First
+                                        name</label>
+                                    <input type="text" name="first_name" id="first_name"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="Enter your names" required="">
+                                        placeholder="Enter your first name" required="">
                                 </div>
-                                <div class="w-1/2">
-                                    <label for="email"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                                        email</label>
-                                    <input type="email" name="email" id="email"
+                                <div class="w-1/3">
+                                    <label for="last_name"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
+                                        name</label>
+                                    <input type="text" name="last_name" id="last_name"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="name@example.com" required="">
+                                        placeholder="Enter last name" required="">
+                                </div>
+                                <div class="w-1/3">
+                                    <label for="id_number"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ID/Passport
+                                    </label>
+                                    <input type="text" name="id_number" id="id_number"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="Enter ID/Passport" required="">
                                 </div>
                             </div>
                             <div class="flex space-x-4">
-                                <div class="w-full">
+                                <div class="w-1/2">
                                     <label for="role"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
                                         Role</label>
@@ -53,16 +60,60 @@
                                         <option value="Child">Child</option>
                                     </select>
                                 </div>
+                                <div class="w-1/2">
+                                    <label for="gender"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                                        Gender</label>
+                                    <select name="gender" id="gender"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="flex space-x-4">
-                                <div>
+                                <div class="w-1/3">
+                                    <label for="phone_number"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
+                                        number</label>
+                                    <input type="number" name="phone_number" id="phone_number"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="Enter your phone number" required="">
+                                </div>
+                                <div class="w-1/3">
+                                    <label for="country"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                        Country</label>
+                                    <input type="text" name="country" id="country"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="Enter country" required="">
+                                </div>
+                                <div class="w-1/3">
+                                    <label for="address"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                        Address</label>
+                                    <input type="text" name="address" id="address"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="Enter address" required="">
+                                </div>
+                            </div>
+                            <div class="flex space-x-4">
+                                <div class="w-1/3">
+                                    <label for="email"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                        email</label>
+                                    <input type="email" name="email" id="email"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="name@example.com" required="">
+                                </div>
+                                <div class="w-1/3">
                                     <label for="password"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                                     <input type="password" name="password" id="password" placeholder="••••••••"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         required="">
                                 </div>
-                                <div>
+                                <div class="w-1/3">
                                     <label for="password"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
                                         password</label>
@@ -81,6 +132,7 @@
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
