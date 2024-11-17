@@ -38,6 +38,7 @@
                 <li><a href="/#" class="text-sm">{{ __('messages.landingpage.e-learning') }}</a></li>
                 <li><a href="/#" class="text-sm">{{ __('messages.landingpage.our-policy') }}</a></li>
                 <li><a href="/#" class="text-sm">{{ __('messages.landingpage.report-abuse') }}</a></li>
+                <li><a href="/campaign" class="text-sm">{{ __('messages.landingpage.campaign') }}</a></li>
                 <li><a href="/#" class="text-sm">{{ __('messages.landingpage.about-us') }}</a></li>
                 <li><a href="/#" class="text-sm">{{ __('messages.landingpage.contact') }}</a></li>
                 <a href="#" class="mt-4 md:mt-0 px-4 py-2 bg-blue-500 text-white rounded">

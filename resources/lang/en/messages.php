@@ -14,6 +14,7 @@ return [
         'donate' => 'Donate',
         'advocateguard' => 'Advocateguard',
         'children-right' => "Protect children right's in Rwanda",
+        'campaign' => 'Campaign',
     ],
     'dashboard-sidebar' => [
         'change-theme' => "Change theme",

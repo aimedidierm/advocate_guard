@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PostController;
@@ -29,6 +30,8 @@ Route::group(
         });
 
         Route::view('/login', 'auth.login')->name('login');
+        Route::get('/campaign', [CampaignController::class, 'landingPage']);
+        Route::get('/campaign-details/{id}', [CampaignController::class, 'campaignDetails']);
 
         Route::group(
             ["prefix" => "auth", "as" => "auth."],
@@ -57,6 +60,8 @@ Route::group(
                 Route::view('/settings', 'auth.profile');
                 Route::resource('/survey', SurveyController::class)->only('index', 'show', 'store', 'destroy');
                 Route::resource('/survey-answers', SurveyAnswerController::class)->only('index', 'show');
+                Route::resource('/campaign', CampaignController::class)->only('index', 'show', 'store', 'destroy');
+                Route::get('/campaign-launch/{id}', [CampaignController::class, 'launch']);
             }
         );
 

@@ -97,6 +97,25 @@
         </ul>
         <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
             <li>
+                <a href="
+                            @if (session('locale') == 'rw')
+                                    {{ url('/switch-language/en') }} @else {{ url('/switch-language/rw') }}
+                            @endif
+                            " class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100
+                            dark:hover:bg-gray-700 group">
+                    <span class="material-symbols-outlined">
+                        translate
+                    </span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">
+                        @if (session('locale') == 'rw')
+                        English
+                        @else
+                        Kinyarwanda
+                        @endif
+                    </span>
+                </a>
+            </li>
+            <li>
                 <a href="#" id="theme-toggle"
                     class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"

@@ -14,6 +14,7 @@ return [
         'donate' => 'Dushyigikire',
         'advocateguard' => 'Umuvugizi',
         'children-right' => "Rinda uburenganzira bw' Umwana mu Rwanda",
+        'campaign' => 'Kampanye',
     ],
     'dashboard-sidebar' => [
         'change-theme' => "Hindura iby'urumuri",
