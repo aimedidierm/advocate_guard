@@ -15,6 +15,26 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
+    <style>
+        #background-container {
+            position: relative;
+            background-image: url('/images/kids_background.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        #background-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+    </style>
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
@@ -22,6 +42,7 @@
     request()->is('child/e-learning'))
     style="background-image:url('/images/kids_background.png');" @endif
     class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+    id="background-container"
     >
     @yield('content')
     <script>

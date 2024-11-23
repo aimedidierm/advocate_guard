@@ -25,7 +25,7 @@
     <div class="space-y-4">
         @foreach ($posts as $post)
         <div class="p-4 bg-white dark:bg-gray-900 rounded shadow">
-            <p class="font-semibold">{{ $post->user->name }}</p>
+            <p class="font-semibold">{{ $post->user->first_name }} {{ $post->user->last_name }}</p>
             <p>{{ $post->content }}</p>
 
             <div class="flex items-center space-x-4 mt-4">
@@ -51,7 +51,8 @@
             <div class="mt-4 space-y-2">
                 @foreach ($post->comments as $comment)
                 <div class="text-gray-600 dark:text-gray-400">
-                    <strong>{{ $comment->user->name }}</strong>: {{ $comment->content }}
+                    <strong>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</strong>: {{
+                    $comment->content }}
                 </div>
                 @endforeach
             </div>

@@ -9,7 +9,7 @@
         </div>
         <div class="flex items-center space-x-4 mt-2 md:mt-0">
             <a href="/login" class="text-sm">{{ __('messages.landingpage.login') }}</a>
-            <a href="/auth/register" class="text-sm">{{ __('messages.landingpage.logout') }}</a>
+            <a href="/auth/register" class="text-sm">{{ __('messages.landingpage.register') }}</a>
             @if (session('locale') == 'rw')
             <a href="{{ url('/switch-language/en') }}" class="text-sm">English</a>
             @else
@@ -41,9 +41,6 @@
                 <li><a href="/campaign" class="text-sm">{{ __('messages.landingpage.campaign') }}</a></li>
                 <li><a href="/about-us" class="text-sm">{{ __('messages.landingpage.about-us') }}</a></li>
                 <li><a href="/contact-us" class="text-sm">{{ __('messages.landingpage.contact') }}</a></li>
-                <a href="#" class="mt-4 md:mt-0 px-4 py-2 bg-blue-500 text-white rounded">
-                    {{__('messages.landingpage.donate')}}
-                </a>
             </ul>
         </div>
     </div>
