@@ -30,6 +30,7 @@ class CampaignController extends Controller
     {
         Campaign::create([
             'name' => $request->input('name'),
+            'date' => $request->input('date'),
             'objective' => $request->input('objective'),
             'goals' => json_encode($request->input('goals')),
             'target_audience' => json_encode($request->input('target_audience')),

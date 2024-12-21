@@ -89,9 +89,6 @@
                             Title
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Description
-                        </th>
-                        <th scope="col" class="px-6 py-3">
 
                         </th>
                     </tr>
@@ -113,9 +110,6 @@
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{$item->title}}
                         </th>
-                        <td class="px-6 py-4">
-                            {{$item->description}}
-                        </td>
                         <td class="flex px-6 py-4">
                             <a href="/admin/survey/{{$item->id}}"
                                 class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Open</a>

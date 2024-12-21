@@ -19,7 +19,13 @@
         <textarea name="content"
             class="w-full p-4 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
             placeholder="Share something..." required></textarea>
-        <button type="submit" class="mt-2 px-4 py-2 bg-green-500 text-white rounded">Post</button>
+        <label for="image-upload" class="cursor-pointer">
+            <span class="material-symbols-outlined text-blue-500">
+                image
+            </span>
+        </label>
+        <input type="file" name="image" id="image-upload" class="hidden"><br>
+        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Post</button>
     </form>
 
     <div class="space-y-4">
@@ -41,10 +47,22 @@
 
                 <span class="text-gray-500">|</span>
 
-                <form action="{{ route('platform.posts.comment', $post) }}" method="POST" class="flex-grow">
+                <form action="{{ route('platform.posts.comment', $post) }}" method="POST" enctype="multipart/form-data"
+                    class="flex-grow flex items-center space-x-2">
                     @csrf
                     <input type="text" name="content" placeholder="Add a comment"
                         class="w-full p-2 bg-gray-200 dark:bg-gray-700 rounded">
+                    <label for="image-upload" class="cursor-pointer">
+                        <span class="material-symbols-outlined text-blue-500">
+                            image
+                        </span>
+                    </label>
+                    <input type="file" name="image" id="image-upload" class="hidden">
+                    <button type="submit" class="text-blue-500">
+                        <span class="material-symbols-outlined">
+                            send
+                        </span>
+                    </button>
                 </form>
             </div>
 
@@ -53,6 +71,12 @@
                 <div class="text-gray-600 dark:text-gray-400">
                     <strong>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</strong>: {{
                     $comment->content }}
+                    @if ($comment->image)
+                    <div class="mt-2">
+                        <img src="{{ asset('storage/' . $comment->image) }}" alt="Comment Image"
+                            class="w-full h-auto rounded">
+                    </div>
+                    @endif
                 </div>
                 @endforeach
             </div>
