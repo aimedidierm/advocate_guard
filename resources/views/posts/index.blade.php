@@ -13,8 +13,9 @@
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold">Community Platform</h1>
     </div>
+    <x-message-component />
 
-    <form action="{{ route('platform.posts.store') }}" method="POST" class="mb-6">
+    <form action="{{ route('platform.posts.store') }}" method="POST" class="mb-6" enctype="multipart/form-data">
         @csrf
         <textarea name="content"
             class="w-full p-4 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
@@ -33,6 +34,11 @@
         <div class="p-4 bg-white dark:bg-gray-900 rounded shadow">
             <p class="font-semibold">{{ $post->user->first_name }} {{ $post->user->last_name }}</p>
             <p>{{ $post->content }}</p>
+            @if ($post->image)
+            <div class="mt-2">
+                <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image" class="w-full h-auto rounded">
+            </div>
+            @endif
 
             <div class="flex items-center space-x-4 mt-4">
                 <span class="text-blue-500"> ({{ $post->likes->count() ."Likes"}})</span>
@@ -52,12 +58,12 @@
                     @csrf
                     <input type="text" name="content" placeholder="Add a comment"
                         class="w-full p-2 bg-gray-200 dark:bg-gray-700 rounded">
-                    <label for="image-upload" class="cursor-pointer">
+                    <label for="comment-image-upload" class="cursor-pointer">
                         <span class="material-symbols-outlined text-blue-500">
                             image
                         </span>
                     </label>
-                    <input type="file" name="image" id="image-upload" class="hidden">
+                    <input type="file" name="image" id="comment-image-upload" class="hidden">
                     <button type="submit" class="text-blue-500">
                         <span class="material-symbols-outlined">
                             send
