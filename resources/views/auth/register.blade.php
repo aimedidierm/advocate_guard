@@ -12,7 +12,8 @@
 <body>
     <x-landing-page-navbar />
     <section class="bg-gray-50 dark:bg-gray-900">
-        <div class="flex items-center justify-center px-6 py-8 ">
+        <div class="flex items-center justify-center min-h-screen bg-cover bg-center"
+            style="background-image: url('/images/hero.jpg');">
             <div class="w-1/2 bg-white">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -136,6 +137,7 @@
             </div>
         </div>
     </section>
+    <x-landing-page-footer />
 </body>
 
 </html>

@@ -33,9 +33,8 @@ Route::group(
         Route::view('/login', 'auth.login')->name('login');
         Route::get('/campaign', [CampaignController::class, 'landingPage']);
         Route::get('/campaign-details/{id}', [CampaignController::class, 'campaignDetails']);
-        Route::view('/about-us', 'about-us');
+        Route::view('/resources', 'resources');
         Route::view('/contact-us', 'contact-us');
-        Route::view('/our-policy', 'our-policy');
 
         Route::group(
             ["prefix" => "auth", "as" => "auth."],

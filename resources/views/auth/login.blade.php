@@ -37,16 +37,6 @@
             margin-right: 2rem;
         }
 
-        .login-image {
-            flex: 1;
-            display: block;
-            height: 100%;
-            background-image: url('/images/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-        }
-
         input,
         button {
             width: 100%;
@@ -72,9 +62,10 @@
 <body>
     <x-landing-page-navbar />
     <section class="bg-gray-50 dark:bg-gray-900">
-        <div class="login-container">
-            <div class="login-form neumorphism">
-                <h1 class="text-xl font-bold text-gray-900 dark:text-white">
+        <div class="flex items-center justify-center min-h-screen bg-cover bg-center"
+            style="background-image: url('/images/bg3.jpeg');">
+            <div class=" w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow dark:bg-gray-800">
+                <h1 class="text-2xl font-bold text-center text-gray-900 dark:text-white">
                     Sign in to your account
                 </h1>
                 <x-message-component />
@@ -83,23 +74,27 @@
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
                             email</label>
-                        <input type="email" name="email" id="email" placeholder="name@example.com" required>
+                        <input type="email" name="email" id="email" placeholder="name@example.com" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-900 dark:text-white">
                     </div>
                     <div>
                         <label for="password"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" required>
+                        <input type="password" name="password" id="password" placeholder="••••••••" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-900 dark:text-white">
                     </div>
-                    <button type="submit">Sign in</button>
+                    <button type="submit"
+                        class="w-full px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Sign
+                        in</button>
                     <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                        Don’t have an account yet? <a href="/auth/login"
+                        Don’t have an account yet? <a href="/auth/register"
                             class="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign up</a>
                     </p>
                 </form>
             </div>
-            <div class="login-image"></div>
         </div>
     </section>
+    <x-landing-page-footer />
 </body>
 
 </html>
