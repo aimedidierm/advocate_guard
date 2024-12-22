@@ -32,7 +32,16 @@
     <div class="space-y-4">
         @foreach ($posts as $post)
         <div class="p-4 bg-white dark:bg-gray-900 rounded shadow">
-            <p class="font-semibold">{{ $post->user->first_name }} {{ $post->user->last_name }}</p>
+            <div class="flex items-center space-x-4">
+                @if ($post->user->profile_image)
+                <img src="{{ asset('storage/' . $post->user->profile_image) }}" alt="Profile Image"
+                    class="w-10 h-10 rounded-full">
+                @else
+                <img src="{{ asset('images/default-profile.jpg') }}" alt="Default Profile Image"
+                    class="w-10 h-10 rounded-full">
+                @endif
+                <p class="font-semibold">{{ $post->user->first_name }} {{ $post->user->last_name }}</p>
+            </div>
             <p>{{ $post->content }}</p>
             @if ($post->image)
             <div class="mt-2">
@@ -74,15 +83,24 @@
 
             <div class="mt-4 space-y-2">
                 @foreach ($post->comments as $comment)
-                <div class="text-gray-600 dark:text-gray-400">
-                    <strong>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</strong>: {{
-                    $comment->content }}
-                    @if ($comment->image)
-                    <div class="mt-2">
-                        <img src="{{ asset('storage/' . $comment->image) }}" alt="Comment Image"
-                            class="w-full h-auto rounded">
-                    </div>
+                <div class="flex items-center space-x-4 text-gray-600 dark:text-gray-400">
+                    @if ($comment->user->profile_image)
+                    <img src="{{ asset('storage/' . $comment->user->profile_image) }}" alt="Profile Image"
+                        class="w-8 h-8 rounded-full">
+                    @else
+                    <img src="{{ asset('images/default-profile.jpg') }}" alt="Default Profile Image"
+                        class="w-8 h-8 rounded-full">
                     @endif
+                    <div>
+                        <strong>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</strong>: {{
+                        $comment->content }}
+                        @if ($comment->image)
+                        <div class="mt-2">
+                            <img src="{{ asset('storage/' . $comment->image) }}" alt="Comment Image"
+                                class="w-full h-auto rounded">
+                        </div>
+                        @endif
+                    </div>
                 </div>
                 @endforeach
             </div>

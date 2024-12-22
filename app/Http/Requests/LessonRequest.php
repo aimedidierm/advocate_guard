@@ -25,7 +25,8 @@ class LessonRequest extends FormRequest
             'title' => 'required|string',
             'description' => 'required|string',
             'file' => 'required|file|mimes:mp4,avi,mov,mkv|max:102400',
-            'course' => 'required'
+            'course' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

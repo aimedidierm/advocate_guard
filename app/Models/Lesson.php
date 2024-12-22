@@ -11,7 +11,7 @@ class Lesson extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['title', 'description', 'src', 'course_id'];
+    protected $fillable = ['title', 'description', 'src', 'course_id', 'image'];
 
     /**
      * Get the course that owns the lesson.

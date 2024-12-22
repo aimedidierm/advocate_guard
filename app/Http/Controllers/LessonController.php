@@ -47,10 +47,18 @@ class LessonController extends Controller
         $path = $request->file('file')->storeAs('files', $filename, 'public');
         $fileUrl = Storage::url($path);
 
+        $uniqueid = uniqid();
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $filename = Carbon::now()->format('Ymd') . '_' . $uniqueid . '.' . $extension;
+
+        $path = $request->file('image')->storeAs('files', $filename, 'public');
+        $imageFileUrl = Storage::url($path);
+
         Lesson::create([
             "title" => $request->input('title'),
             "description" => $request->input('description'),
             "src" => $fileUrl,
+            "image" => $imageFileUrl,
             "course_id" => $request->input('course'),
         ]);
 

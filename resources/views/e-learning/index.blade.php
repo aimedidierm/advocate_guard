@@ -18,8 +18,12 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
                 @foreach($course->lessons as $lesson)
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                    @if ($lesson->image)
+                    <img src="{{ asset($lesson->image) }}" alt="{{ $lesson->title }}"
+                        class="w-full h-32 sm:h-48 object-cover">
+                    @else
                     <img src="/images/bg3.jpeg" alt="{{ $lesson->title }}" class="w-full h-32 sm:h-48 object-cover">
-                    <div class="p-4">
+                    @endif <div class="p-4">
                         <h4 class="text-lg font-semibold mb-2">{{ $lesson->title }}</h4>
                         <p class="text-gray-600">{{ Str::limit($lesson->description, 100) }}</p>
                         <a href="

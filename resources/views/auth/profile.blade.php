@@ -14,9 +14,27 @@
         <br>
         <x-message-component />
         <div class="max-w-full mx-auto rounded p-6 shadow-md">
-            <form action="/auth/settings" method="POST">
+            <form action="/auth/settings" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        @if (Auth::user()->profile_image)
+                        <img id="profileImagePreview" src="{{ asset('storage/' . Auth::user()->profile_image) }}"
+                            alt="Profile Image" class="w-16 h-16 rounded-full">
+                        @else
+                        <img id="profileImagePreview" src="{{ asset('images/default-profile.jpg') }}"
+                            alt="Default Profile Image" class="w-16 h-16 rounded-full">
+                        @endif
+                        <label for="profile_image"
+                            class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Change Image
+                        </label>
+                        <input type="file" name="profile_image" id="profile_image" class="hidden"
+                            onchange="previewImage(event)">
+                    </div>
+                </div>
+                <br>
                 <div class="flex space-x-4 py-2">
                     <div class="w-1/3">
                         <label for="first_name" class="block font-bold mb-2">First Name</label>
@@ -94,4 +112,14 @@
     </div>
 </div>
 </div>
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const output = document.getElementById('profileImagePreview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
 @stop
