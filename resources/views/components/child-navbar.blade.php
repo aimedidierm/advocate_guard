@@ -64,7 +64,7 @@
             </li>
         </ul>
         <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
-            <li>
+            {{-- <li>
                 <a href="
                 @if (session('locale') == 'rw')
                         {{ url('/switch-language/en') }} @else {{ url('/switch-language/rw') }}
@@ -82,7 +82,7 @@
                         @endif
                     </span>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="#" id="theme-toggle"
                     class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
