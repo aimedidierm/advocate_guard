@@ -13,7 +13,7 @@
     <x-landing-page-navbar />
     <div class="h-screen max-w-7xl mx-auto py-12 px-4">
         <div class="text-center">
-            <h1 class="text-2xl font-bold text-gray-800">Policy Library</h1>
+            <h1 class="text-2xl font-bold text-gray-800">Our Resources</h1>
             <p class="text-gray-600 mt-4">
                 Search through a collection of child protection policies and legislation in Rwanda.
             </p>

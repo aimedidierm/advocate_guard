@@ -18,8 +18,21 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(['content' => 'required']);
-        Post::create(['user_id' => Auth::id(), 'content' => $request->content]);
+        $request->validate([
+            'content' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $comment = new Post();
+        $comment->content = $request->content;
+        $comment->user_id = Auth::id();
+
+        if ($request->hasFile('image')) {
+            $comment->image = $request->file('image')->store('comments', 'public');
+        }
+
+        $comment->save();
+
         return redirect()->back();
     }
 
@@ -40,8 +53,22 @@ class PostController extends Controller
 
     public function comment(Request $request, Post $post)
     {
-        $request->validate(['content' => 'required']);
-        $post->comments()->create(['user_id' => Auth::id(), 'content' => $request->content]);
+        $request->validate([
+            'content' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('comments', 'public');
+        } else {
+            $imagePath = null;
+        }
+
+        $post->comments()->create([
+            'user_id' => Auth::id(),
+            'content' => $request->content,
+            'image' => $imagePath,
+        ]);
         return redirect()->back();
     }
 }

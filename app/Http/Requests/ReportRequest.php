@@ -26,8 +26,9 @@ class ReportRequest extends FormRequest
             'description' => 'required|string',
             'victim' => 'required|string|max:255',
             'location' => 'required|string|max:255',
-            'when' => 'required|date',
-            // 'attachments.*' => 'required|file|mimes:jpg,png,pdf,doc,docx|max:2048',
+            'when' => 'required|date|before_or_equal:' . now()->toDateString(),
+            'attachments' => 'required|array',
+            'attachments.*' => 'required|file|mimes:jpg,png,pdf,doc,docx|max:2048',
             'leaning' => 'nullable|string|max:255',
             'category' => 'nullable|string|max:255',
         ];

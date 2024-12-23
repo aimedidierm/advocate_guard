@@ -23,6 +23,7 @@ class CampaignRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'date' => 'required|date',
             'objective' => 'required|string',
             'goals' => 'required|array',
             'goals.*' => 'string',

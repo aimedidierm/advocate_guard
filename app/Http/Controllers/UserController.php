@@ -49,6 +49,7 @@ class UserController extends Controller
             'address' => 'required|string',
             'password' => 'required|string',
             'confirmPassword' => 'required|string',
+            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $user = User::find(Auth::id());
         if ($request->password == $request->confirmPassword) {
@@ -59,6 +60,10 @@ class UserController extends Controller
             $user->country = $request->country;
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
+            if ($request->hasFile('profile_image')) {
+                $imagePath = $request->file('profile_image')->store('profile_images', 'public');
+                $user->profile_image = $imagePath;
+            }
             $user->update();
             if (Auth::user()->role == UserRole::ADMIN->value) {
                 return redirect('/admin/settings')->with('success', 'Account details updated successfully.');

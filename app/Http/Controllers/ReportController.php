@@ -10,6 +10,7 @@ use App\Mail\ResolvedReportAbuseMail;
 use App\Mail\ViewedReportAbuseMail;
 use App\Models\Report;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -123,5 +124,12 @@ class ReportController extends Controller
         } else {
             return redirect('/admin/reporting')->withErrors('Report not found');
         }
+    }
+
+    public function generatePDF()
+    {
+        $reports = Report::all();
+        $pdf = Pdf::loadView('pdf.report', compact('reports'));
+        return $pdf->download('reports.pdf');
     }
 }

@@ -5,7 +5,13 @@
 <x-admin-navbar />
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Reports</h5>
+        <div class="flex justify-between items-center mb-4">
+            <h5 class="text-2xl font-bold text-gray-900 dark:text-white">Reports</h5>
+            <a href="/admin/repoting-genetate-pdf"
+                class="inline-block px-5 py-2.5 text-sm font-medium text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                Generate Report
+            </a>
+        </div>
         <x-message-component />
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
