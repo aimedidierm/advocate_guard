@@ -19,7 +19,7 @@
     </header>
 
     <section class="container mx-auto px-6 py-12">
-        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Campaign Objective</h2>
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6">{{ __('messages.campaignhome1.objective') }}</h2>
         <p class="text-gray-700 leading-relaxed mb-6">
             {{$campaign->objective}}
         </p>
@@ -27,7 +27,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <div>
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Budget Resources</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4"> {{ __('messages.campaignhome1.resource') }}</h3>
                 <ul class="list-disc list-inside text-gray-700">
                     @foreach(json_decode($campaign->budget_resources, true) as $index => $item)
                     <li>{{ $item }}</li>
@@ -35,7 +35,7 @@
                 </ul>
             </div>
             <div>
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Timeline</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ __('messages.campaignhome1.timeline') }}</h3>
                 <ul class="list-disc list-inside text-gray-700">
                     @foreach(json_decode($campaign->timeline, true) as $index => $item)
                     <li>{{ $item }}</li>
@@ -43,7 +43,7 @@
                 </ul>
             </div>
             <div>
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Role Responsibilities</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ __('messages.campaignhome1.role') }}</h3>
                 <ul class="list-disc list-inside text-gray-700">
                     @foreach(json_decode($campaign->role_responsibilities, true) as $index => $item)
                     <li>{{ $item }}</li>

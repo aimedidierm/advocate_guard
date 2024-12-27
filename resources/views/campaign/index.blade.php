@@ -22,7 +22,7 @@
                     <h3 class="text-xl font-semibold text-gray-800">{{$campaign->name}}</h3>
                     <p class="text-gray-600 mt-2">{{$campaign->objective}}</p>
                     <a href="/campaign-details/{{$campaign->id}}"
-                        class="text-green-600 hover:text-green-700 mt-4 inline-block">Learn More</a>
+                        class="text-green-600 hover:text-green-700 mt-4 inline-block"> {{ __('messages.campaignhome.learnmore') }}</a>
                 </div>
             </div>
             @endforeach

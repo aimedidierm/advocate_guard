@@ -10,7 +10,7 @@
             <a href="/community/survey"
                 class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 type="button">
-                Back
+                {{ __('messages.communitysurveydetail.backbtn') }}
             </a>
         </div>
         <x-message-component />
@@ -39,14 +39,14 @@
                         @endforeach
                         <button type="submit"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Submit Answers
+                           {{ __('messages.communitysurveydetail.submit') }}
                         </button>
                     </form>
                 </ul>
             </div>
         </div>
         @else
-        <p class="text-red-500">Survey not found.</p>
+        <p class="text-red-500">{{ __('messages.communitysurveydetail.message') }}</p>
         @endif
     </div>
 </div>

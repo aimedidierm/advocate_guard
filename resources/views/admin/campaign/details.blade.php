@@ -17,9 +17,9 @@
 
         @if($campaign)
         <div class="mt-4">
-            <h6 class="font-semibold">Objective:</h6>
+            <h6 class="font-semibold">{{ __('messages.campaigndisplay.objective') }}</h6>
             <p>{{ $campaign->objective }}</p>
-            <h6 class="font-semibold">Goal:</h6>
+            <h6 class="font-semibold">{{ __('messages.campaigndisplay.goal') }}</h6>
             <ul>
                 @foreach(json_decode($campaign->goals, true) as $index => $goal)
                 <li>
@@ -29,7 +29,7 @@
                 </li>
                 @endforeach
             </ul>
-            <h6 class="font-semibold">Target Audience:</h6>
+            <h6 class="font-semibold">{{ __('messages.campaigndisplay.audience') }}</h6>
             <ul>
                 @foreach(json_decode($campaign->target_audience, true) as $index => $item)
                 <li>
@@ -39,7 +39,7 @@
                 </li>
                 @endforeach
             </ul>
-            <h6 class="font-semibold">Budget Resources:</h6>
+            <h6 class="font-semibold">{{ __('messages.campaigndisplay.resource') }}</h6>
             <ul>
                 @foreach(json_decode($campaign->budget_resources, true) as $index => $item)
                 <li>
@@ -49,7 +49,7 @@
                 </li>
                 @endforeach
             </ul>
-            <h6 class="font-semibold">Timeline:</h6>
+            <h6 class="font-semibold">{{ __('messages.campaigndisplay.timeline') }}</h6>
             <ul>
                 @foreach(json_decode($campaign->timeline, true) as $index => $item)
                 <li>
@@ -59,7 +59,7 @@
                 </li>
                 @endforeach
             </ul>
-            <h6 class="font-semibold">Role Responsibilities:</h6>
+            <h6 class="font-semibold">{{ __('messages.campaigndisplay.role') }}</h6>
             <ul>
                 @foreach(json_decode($campaign->role_responsibilities, true) as $index => $item)
                 <li>
@@ -69,10 +69,10 @@
                 </li>
                 @endforeach
             </ul>
-            <h6 class="font-semibold">Stage: {{$campaign->stage}}</h6>
+            <h6 class="font-semibold">{{ __('messages.campaigndisplay.stage') }}{{$campaign->stage}}</h6>
         </div>
         @else
-        <p class="text-red-500">Campaign not found.</p>
+        <p class="text-red-500">Campaign not found.{{ __('messages.campaigndisplay.message') }}</p>
         @endif
     </div>
 </div>

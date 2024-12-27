@@ -23,7 +23,7 @@
                     <span class="material-symbols-outlined">
                         dashboard
                     </span>
-                    <span class="ml-3">Dashboard</span>
+                    <span class="ml-3">{{ __('messages.child.dashboard') }}</span>
                 </a>
             </li>
             <li>
@@ -32,7 +32,7 @@
                     <span class="material-symbols-outlined">
                         summarize
                     </span>
-                    <span class="ml-3">Reporting</span>
+                    <span class="ml-3">{{ __('messages.child.reporting') }}</span>
                 </a>
             </li>
             <li>
@@ -41,7 +41,7 @@
                     <span class="material-symbols-outlined">
                         menu_book
                     </span>
-                    <span class="flex-1 ml-3 whitespace-nowrap">E-learning</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.child.e-learning') }}</span>
                 </a>
             </li>
             <li>
@@ -50,7 +50,7 @@
                     <span class="material-symbols-outlined">
                         manage_accounts
                     </span>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Settings</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.child.setting') }}</span>
                 </a>
             </li>
             <li>
@@ -59,12 +59,12 @@
                     <span class="material-symbols-outlined">
                         logout
                     </span>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Sign out</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.child.signout') }}</span>
                 </a>
             </li>
         </ul>
         <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
-            {{-- <li>
+             <li>
                 <a href="
                 @if (session('locale') == 'rw')
                         {{ url('/switch-language/en') }} @else {{ url('/switch-language/rw') }}
@@ -76,13 +76,13 @@
                     </span>
                     <span class="flex-1 ml-3 whitespace-nowrap">
                         @if (session('locale') == 'rw')
-                        English
+                        {{ __('messages.child.english') }}
                         @else
-                        Kinyarwanda
+                        {{ __('messages.child.kinyarwanda') }}
                         @endif
                     </span>
                 </a>
-            </li> --}}
+            </li> 
             <li>
                 <a href="#" id="theme-toggle"
                     class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">

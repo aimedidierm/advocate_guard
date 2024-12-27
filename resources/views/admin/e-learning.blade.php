@@ -5,12 +5,12 @@
 <x-admin-navbar />
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Courses management</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ __('messages.admincourse.title') }}</h5>
 
         <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
             class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button">
-            Create new
+            {{ __('messages.admincourse.createBtn') }}
         </button>
 
         <x-message-component />
@@ -21,7 +21,7 @@
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                            Add new course in system
+                            {{ __('messages.admincourse.subtitle') }}
                         </h3>
                         <button type="button"
                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -40,24 +40,24 @@
                             @csrf
                             <div class=" mb-6">
                                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Names</label>
+                                     {{ __('messages.admincourse.name') }}</label>
                                 <input type="text" id="name" name="name"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                             </div>
                             <div class=" mb-6">
                                 <label for="adult" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    For Adult</label>
+                                    {{ __('messages.admincourse.adult') }}</label>
                                 <select name="adult" id="adult"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option value="y">Yes</option>
-                                    <option value="n">No</option>
+                                    <option value="y">{{ __('messages.admincourse.yes') }}</option>
+                                    <option value="n">{{ __('messages.admincourse.no') }}</option>
                                 </select>
                             </div>
                             <div class="mb-6">
                                 <label for="description"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Description</label>
+                                    {{ __('messages.admincourse.description') }}</label>
                                 <textarea type="text" id="description" name="description"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
@@ -65,8 +65,8 @@
                             </div>
                             <br>
                             <button type="submit"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
-                                course</button>
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                {{ __('messages.admincourse.addcoursebtn') }}</button>
                         </form>
                     </div>
                 </div>
@@ -80,13 +80,13 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Date
+                           {{ __('messages.admincourse.date') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Name
+                            {{ __('messages.admincourse.name1') }}
                         </th>
                         <td class="px-6 py-4">
-                            For Child
+                             {{ __('messages.admincourse.forchild') }}
                         </td>
                         <th scope="col" class="px-6 py-3">
 
@@ -119,13 +119,13 @@
                         </td>
                         <td class="flex px-6 py-4">
                             <a href="/admin/e-learning/course/{{$item->id}}"
-                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Open</a>
+                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ __('messages.admincourse.openbtn') }}</a>
                             <form action="{{ route('admin.e-learning.destroy', $item->id) }}" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this course?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                                    class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">{{ __('messages.admincourse.deletebtn') }}</button>
                             </form>
                         </td>
                     </tr>

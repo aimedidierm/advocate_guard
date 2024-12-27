@@ -5,20 +5,20 @@
 <x-admin-navbar />
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Users management</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ __('messages.users.title') }}</h5>
         <x-message-component />
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Name
+                            {{ __('messages.users.name') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Email
+                             {{ __('messages.users.email') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Role
+                            {{ __('messages.users.role') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
 
@@ -30,7 +30,7 @@
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th colspan="6" scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            No data
+                           {{ __('messages.users.message') }}
                         </th>
                     </tr>
                     @else
@@ -51,7 +51,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                                    class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">{{ __('messages.users.delete') }}</button>
                             </form>
                         </td>
                     </tr>

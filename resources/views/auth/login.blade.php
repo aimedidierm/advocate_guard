@@ -67,29 +67,29 @@
             style="background-image: url('/images/bg3.jpeg');">
             <div class=" w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow dark:bg-gray-800">
                 <h1 class="text-2xl font-bold text-center text-gray-900 dark:text-white">
-                    Sign in to your account
+                {{ __('messages.login.signTitle') }}
                 </h1>
                 <x-message-component />
                 <form class="space-y-4 md:space-y-6" action="/auth/login" method="POST">
                     @csrf
                     <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                            email</label>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.login.email') }}
+                            </label>
                         <input type="email" name="email" id="email" placeholder="name@example.com" required
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-900 dark:text-white">
                     </div>
                     <div>
                         <label for="password"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.login.password') }}</label>
                         <input type="password" name="password" id="password" placeholder="••••••••" required
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-900 dark:text-white">
                     </div>
                     <button type="submit"
-                        class="w-full px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Sign
-                        in</button>
+                        class="w-full px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">{{ __('messages.login.sign') }}
+                        </button>
                     <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                        Don’t have an account yet? <a href="/auth/register"
-                            class="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign up</a>
+                       {{ __('messages.login.noAccount') }}<a href="/auth/register"
+                            class="font-medium text-blue-600 hover:underline dark:text-blue-500">{{ __('messages.login.Signup') }}</a>
                     </p>
                 </form>
             </div>

@@ -18,6 +18,10 @@
 
         @if($report)
         <div class="space-y-4">
+             <div>
+                <h6 class="font-semibold text-gray-700 dark:text-gray-300">Category:</h6>
+                <p>{{ $report->category }}</p>
+            </div>
             <div>
                 <h6 class="font-semibold text-gray-700 dark:text-gray-300">Subject:</h6>
                 <p>{{ $report->subject }}</p>
@@ -69,10 +73,7 @@
                 <p>{{ $report->leaning }}</p>
             </div>
 
-            <div>
-                <h6 class="font-semibold text-gray-700 dark:text-gray-300">Category:</h6>
-                <p>{{ $report->category }}</p>
-            </div>
+
 
             <div>
                 <h6 class="font-semibold text-gray-700 dark:text-gray-300">Reported By:</h6>

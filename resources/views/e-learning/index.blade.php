@@ -8,13 +8,13 @@
 @endif
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-        <h1 class="text-3xl font-bold mb-6">Courses</h1>
+        <h1 class="text-3xl font-bold mb-6">{{ __('messages.e-learning.title') }}</h1>
 
         @foreach($courses as $course)
         <div class="shadow-md rounded-lg p-6 mb-6">
             <h2 class="text-2xl font-semibold">{{ $course->name }}</h2>
             <p>{{ $course->description }}</p>
-            <h3 class="text-xl font-medium mt-4">Lessons:</h3>
+            <h3 class="text-xl font-medium mt-4">{{ __('messages.e-learning.lesson') }}</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
                 @foreach($course->lessons as $lesson)
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -32,7 +32,7 @@
                         @else
                         {{ route('child.lessons.show', $lesson->id) }}
                         @endif
-                        " class="text-blue-500 hover:underline mt-4 inline-block">Read more</a>
+                        " class="text-blue-500 hover:underline mt-4 inline-block">{{ __('messages.e-learning.readmore') }}</a>
                     </div>
                 </div>
                 @endforeach

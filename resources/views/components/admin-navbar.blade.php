@@ -23,7 +23,7 @@
                     <span class="material-symbols-outlined">
                         dashboard
                     </span>
-                    <span class="ml-3">Dashboard</span>
+                    <span class="ml-3"> {{ __('messages.admin.dashboard') }}</span>
                 </a>
             </li>
             <li>
@@ -32,7 +32,7 @@
                     <span class="material-symbols-outlined">
                         summarize
                     </span>
-                    <span class="ml-3">Reporting</span>
+                    <span class="ml-3">{{ __('messages.admin.reporting') }}</span>
                 </a>
             </li>
             <li>
@@ -41,7 +41,7 @@
                     <span class="material-symbols-outlined">
                         contact_mail
                     </span>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Campaign</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.admin.campaign') }}</span>
                 </a>
             </li>
             <li>
@@ -50,7 +50,7 @@
                     <span class="material-symbols-outlined">
                         menu_book
                     </span>
-                    <span class="flex-1 ml-3 whitespace-nowrap">E-learning</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.admin.e-learning') }}</span>
                 </a>
             </li>
             <li>
@@ -60,7 +60,7 @@
                     <span class="material-symbols-outlined">
                         file_copy
                     </span>
-                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Survey</span>
+                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">{{ __('messages.admin.survey') }}</span>
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -70,12 +70,11 @@
                 <ul id="dropdown-example" class="hidden py-2 space-y-2">
                     <li>
                         <a href="/admin/survey"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">All
-                            Surveys</a>
+                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{ __('messages.admin.allsurvey') }}</a>
                     </li>
                     <li>
                         <a href="/admin/survey-answers"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Answers</a>
+                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{ __('messages.admin.answers') }}</a>
                     </li>
                 </ul>
             </li>
@@ -85,7 +84,7 @@
                     <span class="material-symbols-outlined">
                         contact_mail
                     </span>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Community</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.admin.community') }}</span>
                 </a>
             </li>
             <li>
@@ -94,7 +93,7 @@
                     <span class="material-symbols-outlined">
                         groups
                     </span>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.admin.users') }}</span>
                 </a>
             </li>
             <li>
@@ -103,7 +102,7 @@
                     <span class="material-symbols-outlined">
                         manage_accounts
                     </span>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Settings</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.admin.setting') }}</span>
                 </a>
             </li>
             <li>
@@ -112,12 +111,12 @@
                     <span class="material-symbols-outlined">
                         logout
                     </span>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Sign out</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.admin.signout') }}</span>
                 </a>
             </li>
         </ul>
         <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
-            {{-- <li>
+             <li>
                 <a href="
                             @if (session('locale') == 'rw')
                                     {{ url('/switch-language/en') }} @else {{ url('/switch-language/rw') }}
@@ -129,13 +128,13 @@
                     </span>
                     <span class="flex-1 ml-3 whitespace-nowrap">
                         @if (session('locale') == 'rw')
-                        English
+                        {{ __('messages.admin.english') }}
                         @else
-                        Kinyarwanda
+                         {{ __('messages.admin.kinyarwanda') }}
                         @endif
                     </span>
                 </a>
-            </li> --}}
+            </li> 
             <li>
                 <a href="#" id="theme-toggle"
                     class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">

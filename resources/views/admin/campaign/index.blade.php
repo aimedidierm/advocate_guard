@@ -5,12 +5,12 @@
 <x-admin-navbar />
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight">Campaign management</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight">{{ __('messages.campaign.title') }}</h5>
 
         <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
             class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button">
-            Create new
+            {{ __('messages.campaign.createbtn') }}
         </button>
         <x-message-component />
 
@@ -20,7 +20,7 @@
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                            Create new campaign
+                            {{ __('messages.campaign.subtitle') }}
                         </h3>
                         <button type="button"
                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -39,14 +39,14 @@
                             @csrf
                             <div class=" mb-6">
                                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Name</label>
+                                    {{ __('messages.campaign.name') }}</label>
                                 <input type="text" id="name" name="name"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                             </div>
                             <div class=" mb-6">
                                 <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Date</label>
+                                    {{ __('messages.campaign.date') }}</label>
                                 <input type="date" id="date" name="date"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
@@ -54,7 +54,7 @@
                             <div class="mb-6">
                                 <label for="objective"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Objective</label>
+                                    {{ __('messages.campaign.objective') }}</label>
                                 <textarea type="text" id="objective" name="objective"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
@@ -62,77 +62,67 @@
                             </div>
                             <div class="w-fullpx-3 mb-6 md:mb-0">
                                 <label for="goals-wrapper"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Goal</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.campaign.goal') }}</label>
                                 <div id="goals-wrapper">
-                                    <input type="text" name="goals[]" placeholder="Goal 1"
+                                    <input type="text" name="goals[]" placeholder="{{ __('messages.campaign.plgoal') }}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         required>
                                 </div>
-                                <button type="button" onclick="addGoals()" class="text-blue-500 text-sm">+ Add
-                                    More
-                                    Goals</button>
+                                <button type="button" onclick="addGoals()" class="text-blue-500 text-sm">
+                                     {{ __('messages.campaign.moregoal') }}</button>
                             </div>
                             <br>
                             <div class="w-fullpx-3 mb-6 md:mb-0">
                                 <label for="target_audience-wrapper"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target
-                                    Audience</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    {{ __('messages.campaign.audience') }}</label>
                                 <div id="target_audience-wrapper">
-                                    <input type="text" name="target_audience[]" placeholder="Target audience 1"
+                                    <input type="text" name="target_audience[]" placeholder="{{ __('messages.campaign.plaudience') }}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         required>
                                 </div>
-                                <button type="button" onclick="addTargetAudience()" class="text-blue-500 text-sm">+ Add
-                                    More
-                                    Target Audience</button>
+                                <button type="button" onclick="addTargetAudience()" class="text-blue-500 text-sm"> {{ __('messages.campaign.moreaudience') }}</button>
                             </div>
                             <br>
                             <div class="w-fullpx-3 mb-6 md:mb-0">
                                 <label for="budget_resources-wrapper"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Budget
-                                    Resources</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.campaign.resources') }}</label>
                                 <div id="budget_resources-wrapper">
-                                    <input type="text" name="budget_resources[]" placeholder="Budget Resources 1"
+                                    <input type="text" name="budget_resources[]" placeholder="{{ __('messages.campaign.plresources') }}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         required>
                                 </div>
-                                <button type="button" onclick="addBudgetResources()" class="text-blue-500 text-sm">+ Add
-                                    More
-                                    Budget Resources</button>
+                                <button type="button" onclick="addBudgetResources()" class="text-blue-500 text-sm">
+                                    {{ __('messages.campaign.moreresources') }}</button>
                             </div>
                             <br>
                             <div class="w-fullpx-3 mb-6 md:mb-0">
                                 <label for="timeline-wrapper"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Timeline</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.campaign.timeline') }}</label>
                                 <div id="timeline-wrapper">
-                                    <input type="text" name="timeline[]" placeholder="Phase 1"
+                                    <input type="text" name="timeline[]" placeholder="{{ __('messages.campaign.pltimeline') }}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         required>
                                 </div>
-                                <button type="button" onclick="addTimeline()" class="text-blue-500 text-sm">+ Add
-                                    More
-                                    Phases</button>
+                                <button type="button" onclick="addTimeline()" class="text-blue-500 text-sm">{{ __('messages.campaign.morephase') }}</button>
                             </div>
                             <br>
                             <div class="w-fullpx-3 mb-6 md:mb-0">
                                 <label for="role_responsibilities-wrapper"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role
-                                    Responsibilities</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.campaign.role') }}</label>
                                 <div id="role_responsibilities-wrapper">
                                     <input type="text" name="role_responsibilities[]"
-                                        placeholder="Role Responsibilities 1"
+                                        placeholder="{{ __('messages.campaign.plrole') }}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         required>
                                 </div>
                                 <button type="button" onclick="addRoleResponsibilities()"
-                                    class="text-blue-500 text-sm">+ Add
-                                    More
-                                    Role Responsibilities</button>
+                                    class="text-blue-500 text-sm">{{ __('messages.campaign.morerole') }}</button>
                             </div>
                             <br>
                             <button type="submit"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
-                                campaign</button>
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                {{ __('messages.campaign.addcampaignbtn') }}</button>
                         </form>
                     </div>
                 </div>
@@ -146,10 +136,10 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Name
+                            {{ __('messages.campaign.tbname') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Stage
+                            {{ __('messages.campaign.tbstage') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
 
@@ -175,13 +165,13 @@
                         </td>
                         <td class="flex px-6 py-4">
                             <a href="/admin/campaign/{{$item->id}}"
-                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">More</a>
+                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline"> {{ __('messages.campaign.moreBtn') }}</a>
                             <form action="/admin/campaign/{{$item->id}}" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this lesson?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                                    class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">{{ __('messages.campaign.deleteBtn') }}</button>
                             </form>
                             @if ($item->stage == App\Enums\CampaignStage::PLANNING->value)
                             <a href="/admin/campaign-launch/{{$item->id}}"
