@@ -6,10 +6,10 @@
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
         <div class="flex justify-between items-center mb-4">
-            <h5 class="text-2xl font-bold text-gray-900 dark:text-white">Reports</h5>
+            <h5 class="text-2xl font-bold text-gray-900 dark:text-white">{{ __('messages.adminReport.title') }}</h5>
             <a href="/admin/repoting-genetate-pdf"
                 class="inline-block px-5 py-2.5 text-sm font-medium text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                Generate Report
+                {{ __('messages.adminReport.generatePDF') }}
             </a>
         </div>
         <x-message-component />
@@ -18,19 +18,25 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Date
+                            {{ __('messages.adminReport.date') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Category
+                            {{ __('messages.adminReport.category') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Subject
+                            {{ __('messages.adminReport.role') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Location
+                            {{ __('messages.adminReport.province') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Status
+                            {{ __('messages.adminReport.district') }}
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            {{ __('messages.adminReport.sector') }}
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            {{ __('messages.adminReport.status') }}
                         </th>
                         <th scope="col" class="px-6 py-3">
 
@@ -52,26 +58,32 @@
                             {{$item->created_at}}
                         </th>
                         <td class="px-6 py-4">
-                            {{$item->category}}
+                            {{$item->type_abuse}}
                         </td>
                         <td class="px-6 py-4">
-                            {{$item->subject}}
+                            {{$item->user->role}}
                         </td>
                         <td class="px-6 py-4">
-                            {{$item->location}}
+                            {{$item->province}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{$item->district}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{$item->sector}}
                         </td>
                         <td class="px-6 py-4">
                             {{$item->status}}
                         </td>
                         <td class="flex px-6 py-4">
                             <a href="/admin/reporting/{{$item->id}}"
-                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">More</a>
+                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ __('messages.adminReport.more') }}</a>
                             @if ($item->status == App\Enums\ReportStatus::PENDING->value)
                             <a href="/admin/reporting-status/viewed/{{$item->id}}"
-                                class="px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:underline">Viewed</a>
+                                class="px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:underline">{{ __('messages.adminReport.viewed') }}</a>
                             @elseif($item->status == App\Enums\ReportStatus::VIEWED->value)
                             <a href="/admin/reporting-status/resolved/{{$item->id}}"
-                                class="px-2 font-medium text-green-600 dark:text-green-500 hover:underline">Resolved</a>
+                                class="px-2 font-medium text-green-600 dark:text-green-500 hover:underline">{{ __('messages.adminReport.resolved') }}</a>
                             @else
 
                             @endif

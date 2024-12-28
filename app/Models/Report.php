@@ -12,18 +12,15 @@ class Report extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'provide_name',
-        'subject',
-        'description',
-        'victim',
-        'location',
-        'still_going',
-        'when',
-        'attachments',
-        'leaning',
-        'category',
-        'user_id',
-        'status'
+        'type_abuse',      // New field for type of abuse
+        'description',     // Description of the incident
+        'province',        // Province where the incident occurred
+        'district',        // District where the incident occurred
+        'sector',          // Sector related to the district
+        'date_incident',   // Date of the incident
+        'attachments',     // Attachments related to the report
+        'user_id',         // User creating the report
+        'status'           // Status of the report
     ];
 
     /**

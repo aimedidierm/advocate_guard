@@ -40,14 +40,14 @@ class ReportController extends Controller
     public function store(ReportRequest $request)
     {
         $report = new Report();
-        $report->subject = $request->subject;
+        $report->type_abuse = $request->type_abuse; // Updated field
         $report->description = $request->description;
-        $report->victim = $request->victim;
-        $report->location = $request->location;
-        $report->when = $request->when;
-        $report->leaning = $request->leaning;
-        $report->category = $request->category;
+        $report->province = $request->province;      // New field
+        $report->district = $request->district;      // New field
+        $report->sector = $request->sector;          // New field
+        $report->date_incident = $request->date_incident; // Updated field
         $report->user_id = Auth::id();
+
         if ($request->hasFile('attachments')) {
             $attachments = [];
             foreach ($request->file('attachments') as $file) {
@@ -60,15 +60,15 @@ class ReportController extends Controller
         $report->save();
 
         $adminDetails = User::where('role', UserRole::ADMIN->value)->first();
-
         Mail::to($adminDetails->email)->send(new ReportAbuseMail($report));
 
+        // Redirect based on user role
         if (Auth::user()->role == UserRole::COMMUNITY->value) {
             return redirect('/community/reporting')->with('success', 'Report created successfully.');
         } elseif (Auth::user()->role == UserRole::CHILD->value) {
             return redirect('/child/reporting')->with('success', 'Report created successfully.');
         } else {
-            # code...
+            return redirect()->route('report.index')->with('success', 'Report created successfully.'); // For ADMIN
         }
     }
 
@@ -100,7 +100,6 @@ class ReportController extends Controller
             $report->update();
 
             $userDetails = User::find($report->user_id);
-
             Mail::to($userDetails->email)->send(new ViewedReportAbuseMail($report));
 
             return redirect('/admin/reporting')->with('success', 'Report updated successfully.');
@@ -117,7 +116,6 @@ class ReportController extends Controller
             $report->update();
 
             $userDetails = User::find($report->user_id);
-
             Mail::to($userDetails->email)->send(new ResolvedReportAbuseMail($report));
 
             return redirect('/admin/reporting')->with('success', 'Report updated successfully.');

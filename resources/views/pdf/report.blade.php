@@ -11,18 +11,20 @@
 <body class="bg-opacity-50">
     <div class="container mx-auto p-4">
         <center>
-            <h2 class="text-2xl font-semibold mb-4">List of all reporteds</h2>
+            <h2 class="text-2xl font-semibold mb-4">List of All Reported</h2>
         </center>
 
         <table class="w-full table-auto border border-collapse">
             <thead>
                 <tr>
                     <th style="padding: 8px; border: 1px solid #0c0c0c;">Date</th>
-                    <th style="padding: 8px; border: 1px solid #0c0c0c;">Subject</th>
-                    <th style="padding: 8px; border: 1px solid #0c0c0c;">Victim</th>
-                    <th style="padding: 8px; border: 1px solid #0c0c0c;">Location</th>
+                    <th style="padding: 8px; border: 1px solid #0c0c0c;">Category</th>
+                    <th style="padding: 8px; border: 1px solid #0c0c0c;">Name</th>
+                    <th style="padding: 8px; border: 1px solid #0c0c0c;">Province</th>
+                    <th style="padding: 8px; border: 1px solid #0c0c0c;">District</th>
+                    <th style="padding: 8px; border: 1px solid #0c0c0c;">Sector</th>
                     <th style="padding: 8px; border: 1px solid #0c0c0c;">Status</th>
-                    <th style="padding: 8px; border: 1px solid #0c0c0c;">Hapenned</th>
+                    <th style="padding: 8px; border: 1px solid #0c0c0c;">Happened</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,12 +37,14 @@
                 <tr>
                     <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->created_at->format('Y-m-d') }}
                     </td>
-                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->subject }}</td>
-                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->victim }}</td>
-                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->location }}</td>
+                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->type_abuse }}</td>
+                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->user->first_name . ' ' . $report->user->last_name }}</td>
+                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->province }}</td>
+                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->district }}</td>
+                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->sector }}</td>
                     <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->still_going ? 'Still Ongoing' :
                         'Resolved' }}</td>
-                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->when }}</td>
+                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->date_incident }}</td>
                 </tr>
                 @endforeach
                 @endif

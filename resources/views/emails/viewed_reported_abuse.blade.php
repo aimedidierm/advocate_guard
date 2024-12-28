@@ -96,32 +96,32 @@
 
             <table>
                 <tr>
-                    <th>Subject</th>
-                    <td>{{ $report->subject }}</td>
+                    <th>Category</th>
+                    <td>{{ $report->type_abuse }}</td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>{{ $report->description }}</td>
                 </tr>
                 <tr>
-                    <th>Victim</th>
-                    <td>{{ $report->victim }}</td>
+                    <th>Names</th>
+                    <td>{{ $report->user->first_name }}</td>
                 </tr>
                 <tr>
-                    <th>Location</th>
-                    <td>{{ $report->location }}</td>
+                    <th>Province</th>
+                    <td>{{ $report->province }}</td>
                 </tr>
                 <tr>
-                    <th>When</th>
-                    <td>{{ $report->when }}</td>
+                    <th>District</th>
+                    <td>{{ $report->district }}</td>
                 </tr>
                 <tr>
-                    <th>Leaning</th>
-                    <td>{{ $report->leaning }}</td>
+                    <th>Sector</th>
+                    <td>{{ $report->sector }}</td>
                 </tr>
                 <tr>
-                    <th>Category</th>
-                    <td>{{ $report->category }}</td>
+                    <th>Date</th>
+                    <td>{{ $report->date_incident }}</td>
                 </tr>
             </table>
         </div>
