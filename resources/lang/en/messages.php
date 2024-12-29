@@ -62,7 +62,7 @@ return [
         '' => '',
         '' => '',
         '' => '',
-                                   
+
     ],
     'profile' => [
         'title' => 'Update your detail',
@@ -79,42 +79,42 @@ return [
         'update' => 'Update Details',
     ],
     'admincourse' => [
-        'title' =>'Courses management',
-        'createBtn' =>'Create new',
-        'subtitle' =>'Add new course in system',
-        'names' =>'Names',
-        'adult' =>'For Adult',
-        'yes' =>'Yes',
+        'title' => 'Courses management',
+        'createBtn' => 'Create new',
+        'subtitle' => 'Add new course in system',
+        'names' => 'Names',
+        'adult' => 'For Adult',
+        'yes' => 'Yes',
         'no' => 'No',
         'name' => 'Name',
         'description' => 'Description',
         'addcoursebtn' => 'Add course',
-        'date' =>'Date',
-        'forchild' =>'For Child',
-        'date' =>'Date',
-        'name1' =>'Names',
+        'date' => 'Date',
+        'forchild' => 'For Child',
+        'date' => 'Date',
+        'name1' => 'Names',
         'openbtn' => 'Open',
         'deletebtn' => 'Detele',
 
-        
+
     ],
     'admincourseSub' => [
-        'title' =>'Course lessons management',
-        'createBtn' =>'Create new',
-        'subtitle' =>'Add new course lesson ',
+        'title' => 'Course lessons management',
+        'createBtn' => 'Create new',
+        'subtitle' => 'Add new course lesson ',
         'subtitle1' => 'Title',
         'video' => 'Video',
         'coverimage' => 'Cover Image',
         'lesson' => 'Add Lesson',
-        'name' =>'Name',
+        'name' => 'Name',
         'description' => 'Description',
         'addcoursebt' => 'Add course',
-        'date' =>'Date',
-        'date' =>'Date',
-        'name1' =>'Names',
+        'date' => 'Date',
+        'date' => 'Date',
+        'name1' => 'Names',
         'openbtn' => 'Open',
         'deletebtn' => 'Detele',
-        
+
     ],
     'campaign' => [
         'title' => 'Campaign management',
@@ -146,7 +146,7 @@ return [
 
     ],
     'campaigndisplay' => [
-        'objective'=> 'Objective:',
+        'objective' => 'Objective:',
         'goal' => 'Goals:',
         'audience' => 'Target Audience:',
         'resource' => 'Budget Resources:',
@@ -154,7 +154,7 @@ return [
         'role' => 'Role Responsibilities:',
         'stage' => 'Stage:',
         'message' => 'Campaign not found.',
-        
+
     ],
     'survey' => [
         'title' => 'Survey management',
@@ -170,7 +170,7 @@ return [
         'title2' => 'Title',
         'openbtn' => 'Open',
         'deletebtn' => 'Delete ',
-        
+
     ],
     'surveydetail' => [
         'question' => 'Questions:',
@@ -182,7 +182,7 @@ return [
         'created' => 'Created',
         'user' => 'User',
         'survey' => 'Survey',
-        
+
     ],
     'surveyanswers-details' => [
         'backbtn' => 'Back',
@@ -191,7 +191,7 @@ return [
     'campaignhome' => [
         'learnmore' => 'Learn More',
     ],
-    'campaignhome1'=> [
+    'campaignhome1' => [
         'objective' => 'Campaign Description',
         'resource' => 'Budget Resources',
         'timeline' => 'Timeline',
@@ -205,19 +205,19 @@ return [
     ],
     'communitysurveydetail' => [
         'backbtn' => 'Back',
-        'submit' =>'Submit Answers',
+        'submit' => 'Submit Answers',
         'message' => 'Survey not found.',
     ],
     'communitysurveyanswer' => [
         'title' => 'Survey',
         'created' => 'Created',
         'title' => 'Title',
-        
+
     ],
     'communitysurveyanswerdetail' => [
         'backbtn' => 'Back',
         'message' => 'Survey not found.',
-        
+
     ],
     'admin' => [
         'dashboard' => 'Dashboard',
@@ -233,7 +233,7 @@ return [
         'signout' => 'Sign out',
         'english' => 'Engilsh',
         'kinyarwanda' => 'Kinyarwanda',
- 
+
     ],
     'child' => [
         'dashboard' => 'Dashboard',
@@ -243,7 +243,7 @@ return [
         'signout' => 'Sign out',
         'english' => 'Engilsh',
         'kinyarwanda' => 'Kinyarwanda',
- 
+
     ],
     'community' => [
         'dashboard' => 'Dashboard',
@@ -257,13 +257,13 @@ return [
         'signout' => 'Sign out',
         'english' => 'Engilsh',
         'kinyarwanda' => 'Kinyarwanda',
-        
+
     ],
     'e-learning' => [
         'title' => 'Courses',
         'lesson' => 'Lessons:',
         'readmore' => 'Read more',
-        
+
     ],
     'e-learningshow' => [
         'video' => 'Video:',
@@ -337,20 +337,21 @@ return [
 
     ],
     'adminReport' => [
-        'title'=> 'Reports',
+        'title' => 'Reports',
         'generatePDF' => 'Generate Report',
         'category' => 'Category',
         'province' => 'Province',
         'district' => 'District',
         'sector' => 'Sector',
-        'status' => 'Status',      
+        'status' => 'Status',
         'role' => 'Role',
         'date' => 'Date',
         'more' => 'More',
+        'delete' => 'Delete',
         'resolved' => 'Resolved',
         'viewed' => 'Viewed',
-        
-    
+
+
     ],
     'adminreportDetails' => [
         'Report Details' => '',
@@ -370,5 +371,5 @@ return [
         'role' => 'Role:',
         'messageAttachment' => 'No attachments available.',
     ]
-        
+
 ];

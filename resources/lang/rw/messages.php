@@ -62,7 +62,7 @@ return [
         '' => '',
         '' => '',
         '' => '',
-                                   
+
     ],
     'profile' => [
         'title' => 'Kuvugurura Imyirondoro yawe',
@@ -79,40 +79,40 @@ return [
         'update' => 'Emeza',
     ],
     'admincourse' => [
-        'title' =>'Kugenzura Amasomo',
-        'createBtn' =>' Shyiramo Isomo rishya ',
-        'subtitle' =>'Ongeraho Amasomo Mashya Muri Sisitemu',
-        'names' =>'Izina',
-        'adult' =>'Kubakuze',
-        'yes' =>'Yego',
+        'title' => 'Kugenzura Amasomo',
+        'createBtn' => ' Shyiramo Isomo rishya ',
+        'subtitle' => 'Ongeraho Amasomo Mashya Muri Sisitemu',
+        'names' => 'Izina',
+        'adult' => 'Kubakuze',
+        'yes' => 'Yego',
         'no' => 'Oya',
         'name' => 'Izina',
         'description' => 'Ibisobanuro',
         'addcoursebt' => 'Emeza Kongeramo',
-        'date' =>'Itariki',
-        'forchild' =>'Kubana',
-        'name1' =>'Amazina',
+        'date' => 'Itariki',
+        'forchild' => 'Kubana',
+        'name1' => 'Amazina',
         'openbtn' => 'Fungura',
         'deletebtn' => 'Siba',
         'addcoursebtn' => 'Emeza Isomo',
-        
+
     ],
     'admincourseSub' => [
-        'title' =>'Kugenzura amasomo',
-        'createBtn' =>'Ongeraho amasomo',
-        'subtitle' =>'Ongeraho Isomo Rishya ',
+        'title' => 'Kugenzura amasomo',
+        'createBtn' => 'Ongeraho amasomo',
+        'subtitle' => 'Ongeraho Isomo Rishya ',
         'subtitle1' => 'Izina',
         'video' => 'Video',
         'coverimage' => 'Ifoto',
         'lesson' => 'Emeza Isomo',
-        'name' =>'Izina',
+        'name' => 'Izina',
         'description' => 'Ibisobanuro',
         'addcoursebt' => 'Emeza Isomo',
-        'date' =>'Itariki',
-        'name1' =>'Amazina',
+        'date' => 'Itariki',
+        'name1' => 'Amazina',
         'openbtn' => 'Fungura',
         'deletebtn' => 'Siba',
-        
+
     ],
     'campaign' => [
         'title' => 'Kugenzura Kampanye',
@@ -156,7 +156,7 @@ return [
         'title2' => 'Umutwe Wa Magambo',
         'openbtn' => 'Fungura',
         'deletebtn' => 'Siba',
-        
+
     ],
     'surveydetail' => [
         'question' => 'Ikibazo:',
@@ -168,19 +168,19 @@ return [
         'created' => 'Yakozwe',
         'user' => 'Uwayisubije',
         'survey' => 'Izina',
-        
+
     ],
     'surveyanswers-details' => [
         'backbtn' => 'Back',
         '' => '',
         '' => '',
         '' => '',
-    
+
     ],
     'campaignhome' => [
         'learnmore' => 'Ibirambuye',
     ],
-    'campaignhome1'=> [
+    'campaignhome1' => [
         'objective' => 'Ibirambuye kuri Campaign',
         'resource' => 'Ingengo yimari ni Bikoresho',
         'timeline' => 'Igihe',
@@ -194,7 +194,7 @@ return [
     ],
     'communitysurveydetail' => [
         'backbtn' => 'Subira Inyuma',
-        'submit' =>'Ohereza Ibisubizo',
+        'submit' => 'Ohereza Ibisubizo',
         'message' => 'Ubushakashatsi ntibwabonetse',
     ],
     'admin' => [
@@ -211,9 +211,9 @@ return [
         'signout' => 'Sohokamo',
         'english' => 'Engilsh',
         'kinyarwanda' => 'Kinyarwanda',
- 
+
     ],
-    'child' =>[
+    'child' => [
         'dashboard' => 'Ikibazho',
         'reporting' => 'Raporo',
         'e-learning' => 'Kwiga',
@@ -223,7 +223,7 @@ return [
         'kinyarwanda' => 'Kinyarwanda',
 
     ],
-    'community' =>[
+    'community' => [
         'dashboard' => 'Ikibazho',
         'reporting' => 'Raporo',
         'e-learning' => 'Kwiga',
@@ -316,22 +316,23 @@ return [
 
     ],
     'adminReport' => [
-        'title'=> 'Raporo',
+        'title' => 'Raporo',
         'generatePDF' => 'Raporo Ngufi',
         'category' => 'Icyiciro',
         'province' => 'Intara',
         'district' => 'Akarere',
         'sector' => 'Umurenge',
-        'status' => 'Imiterere',      
+        'status' => 'Imiterere',
         'role' => 'Uruhare',
         'date' => 'Itariki',
         'more' => 'Birambuye',
+        'delete' => 'Siba',
         'resolved' => 'Byakemutse',
         'viewed' => 'Reba',
 
     ],
     'adminreportDetails' => [
-        
+
         'title' => 'Ubisobanuro bwa Raporo ',
         'category' => 'Icyiciro',
         'description' => "Ibisobanuro by'ibyabaye:",
@@ -349,5 +350,5 @@ return [
         'messageAttachment' => 'Nta mugereka uhari.',
 
     ]
-    
+
 ];

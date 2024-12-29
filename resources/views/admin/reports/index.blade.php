@@ -46,7 +46,7 @@
                 <tbody>
                     @if ($reports->isEmpty())
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <th colspan="6" scope="row"
+                        <th colspan="8" scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             No data
                         </th>
@@ -76,14 +76,25 @@
                             {{$item->status}}
                         </td>
                         <td class="flex px-6 py-4">
+                            <form action="/admin/reporting/{{$item->id}}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">
+                                    {{ __('messages.adminReport.delete') }}
+                                </button>
+                            </form>
                             <a href="/admin/reporting/{{$item->id}}"
-                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ __('messages.adminReport.more') }}</a>
+                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">{{
+                                __('messages.adminReport.more') }}</a>
                             @if ($item->status == App\Enums\ReportStatus::PENDING->value)
                             <a href="/admin/reporting-status/viewed/{{$item->id}}"
-                                class="px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:underline">{{ __('messages.adminReport.viewed') }}</a>
+                                class="px-2 font-medium text-yellow-600 dark:text-yellow-500 hover:underline">{{
+                                __('messages.adminReport.viewed') }}</a>
                             @elseif($item->status == App\Enums\ReportStatus::VIEWED->value)
                             <a href="/admin/reporting-status/resolved/{{$item->id}}"
-                                class="px-2 font-medium text-green-600 dark:text-green-500 hover:underline">{{ __('messages.adminReport.resolved') }}</a>
+                                class="px-2 font-medium text-green-600 dark:text-green-500 hover:underline">{{
+                                __('messages.adminReport.resolved') }}</a>
                             @else
 
                             @endif

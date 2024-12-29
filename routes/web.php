@@ -33,7 +33,7 @@ Route::group(
         Route::view('/login', 'auth.login')->name('login');
         Route::get('/campaign', [CampaignController::class, 'landingPage']);
         Route::get('/campaign-details/{id}', [CampaignController::class, 'campaignDetails']);
-        Route::view('/resources', 'resources');
+        Route::get('/resources', [DashboardController::class, 'landingPageResources']);
         Route::view('/contact-us', 'contact-us');
 
         Route::group(
@@ -55,7 +55,7 @@ Route::group(
                 Route::get('/e-learning/course/{id}', [CourseController::class, 'show']);
                 Route::resource('/e-learning/course/lesson', LessonController::class)->only('index', 'store', 'show', 'destroy');
                 Route::resource('/users', UserController::class)->only('index', 'destroy');
-                Route::resource('/reporting', ReportController::class)->only('index', 'show');
+                Route::resource('/reporting', ReportController::class)->only('index', 'show', 'destroy');
                 Route::get('/repoting-genetate-pdf', [ReportController::class, 'generatePDF']);
                 Route::get('/reporting-status/viewed/{id}', [ReportController::class, 'viewed']);
                 Route::get('/reporting-status/resolved/{id}', [ReportController::class, 'resolved']);
