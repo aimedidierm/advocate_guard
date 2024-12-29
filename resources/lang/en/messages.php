@@ -316,7 +316,7 @@ return [
         'more' => 'More',
         'physical_abuse' => 'Physical abuse involves physical harm or injury to a child, such as hitting or beating.',
         'emotional_abuse' => 'Emotional abuse involves verbal attacks, humiliation, or constant criticism of a child.',
-        'neglect' => "Neglect is the failure to provide for a child's basic needs, including food, shelter, and care.",
+        'neglect_abuse' => "Neglect is the failure to provide for a child basic needs, including food, shelter, and care.",
         'sexual_abuse' => 'Sexual abuse involves any inappropriate sexual behavior with a child.',
     ],
     'childreportDetails' => [

@@ -107,7 +107,7 @@
                               const descriptions = {
                                 "Physical abuse": "{{ __('messages.childreport.physical_abuse') }}",
                            "Emotional abuse": "{{ __('messages.childreport.emotional_abuse') }}",
-                          "Neglect": "{{ __('messages.childreport.neglect') }}",
+                          "Neglect": "{{ __('messages.childreport.neglect_abuse') }}",
                          "Sexual abuse": "{{ __('messages.childreport.sexual_abuse') }}"
                         };
 

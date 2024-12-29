@@ -295,7 +295,7 @@ return [
         'more' => 'Birambuye',
         'physical_abuse' => 'Ihohoterwa rishingiye ku mubiri ririmo kwangiza umubiri cyangwa gukomeretsa umwana, nko gukubita cyangwa gukubita.',
         'emotional_abuse' => 'Gutukana kumarangamutima birimo gutera amagambo, gutukwa, cyangwa guhora unenga umwana.',
-        'neglect' => 'Kwirengagiza ni kunanirwa gutanga ibyifuzo byibanze byumwana, harimo ibiryo, aho kuba, no kubitaho.',
+        'neglect_abuse' => 'Kwirengagiza ni kunanirwa gutanga ibyifuzo byibanze byumwana, harimo ibiryo, aho kuba, no kubitaho.',
         'sexual_abuse' => 'Ihohoterwa rishingiye ku gitsina cyangwa imyitwarire idakwiye y’umwana.',
     ],
     'childreportDetails' => [

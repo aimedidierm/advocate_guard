@@ -107,7 +107,7 @@
                               const descriptions = {
                             "Physical abuse": "{{ __('messages.childreport.physical_abuse') }}",
                            "Emotional abuse": "{{ __('messages.childreport.emotional_abuse') }}",
-                          "Neglect": "{{ __('messages.childreport.neglect') }}",
+                          "Neglect": "{{ __('messages.childreport.neglect_abuse') }}",
                          "Sexual abuse": "{{ __('messages.childreport.sexual_abuse') }}"
                         };
 
@@ -130,16 +130,33 @@
             
         ],
         "Southern Province": [
-            { name: "Huye", sectors: ["Ngoma", "Kibaya", "Rango"] },
-            { name: "Nyamagabe", sectors: ["Gasaka", "Kamegeri", "Tare"] }
+            { name: "Huye", sectors: ["Gishamvu", "Karama", "Kigoma", "Kinazi", "Maraba", "Mbazi", "Mukura", "Ngoma", "Ruhashya", "Huye", "Rusatira", "Rwaniro", "Simbi", "Tumba"] },
+            { name: "Nyamagabe", sectors: ["Buruhukiro", "Cuanika", "Gatare", "Kaduha", "Kamegeli", "Kibirizi", "Kibumbwe", "Kitabi", "Mbazi", "Mugano", "Musange", "Musebeya", "Mushubi", "Nkomane", "Gasaka", "Tare", "Uwinkingi"] },
+            { name: "Ruhango", sectors: ["Byimana", "Bweramana", "Kabagali", "Kinazi", "Mbuye", "Mwendo", "Ntongwe", "Ruhango", "Kinihira"] },
+            { name: "Gisagara", sectors: ["Gikonko", "Gishubi", "Kansi", "Kibilizi", "Kigembe", "Mamba", "Muganza", "Mugombwa", "Mukindo", "Musha", "Ndora", "Nyanza", "Save"] },
+            { name: "Kamonyi", sectors: ["Gacurabwenge", "Karama", "Kayenzi", "Kayumbu", "Mugina", "Musambira", "Ngamba", "Nyamiyaga", "Nyarubaka", "Rugalika", "Rukoma", "Runda"]},
+            { name: "Muhanga", sectors: ["Nyamabuye", "Shyogwe", "Cyeza", "Rugendabari", "Nyabinoni", "Rongi", "Kabacuzi", "Muhanga"] },
+            { name: "Nyanza", sectors: ["Busasamana", "Busoro", "Cyabakamyi", "Kibirizi", "Kigoma", "Mukingo", "Muyira", "Ntyazo", "Nyagisozi", "Rwabicuma"] },
+            { name: "Nyaruguru", sectors: ["Busanze", "Cyahinda", "Kibeho", "Kivu", "Mata", "Muganza", "Munini", "Ngera", "Ngoma", "Nyabimata", "Nyagisozi", "Ruheru", "Ruramba", "Rusenge"] }
         ],
         "Eastern Province": [
-            { name: "Rwamagana", sectors: ["Gahengeri", "Muhazi", "Nyakariro"] },
-            { name: "Kayonza", sectors: ["Kibungo", "Mukarange", "Nyamirama"] }
+            { name: "Rwamagana", sectors: ["Fumbwe", "Gahengeri", "Gishali", "Karenge", "Kigabiro", "Muhazi", "Munyaga", "Munyiginya", "Musha", "Muyumbu", "Mwulire", "Nyakariro", "Nzige", "Rubona"] },
+            { name: "Kayonza", sectors: ["Gahini", "Kabare", "Kabarondo", "Mukarange", "Murama", "Murundi", "Mwiri", "Ndego", "Nyamirama", "Rukara", "Ruramira", "Rwinkwavu"] },
+            { name: "Gatsibo", sectors: ["Gasange", "Gatsibo", "Gitoki", "Kabarore", "Kageyo", "Kiramuruzi", "Kiziguro", "Muhura", "Murambi", "Ngarama", "Nyagihanga", "Remera", "Rugarama", "Rwimbogo"] },
+            { name: "Kirehe", sectors: ["Gahara", "Gatore", "Kigarama", "Kigina", "Kirehe", "Mahama", "Mpanga", "Musaza", "Mushikiri", "Nasho", "Nyamugari", "Nyarubuye"] },
+            { name: "Ngoma", sectors: ["Gashanda", "Jarama", "Karembo", "Kazo", "Kibungo", "Mugesera", "Murama", "Mutenderi", "Remera", "Rukira", "Rukumberi", "Rurenge", "Sake", "Zaza"] },
+            { name: "Nyagatare", sectors: ["Gatunda", "Kiyombe", "Karama", "Karangazi", "Katabagemu", "Matimba", "Mimuli", "Mukama", "Musheli", "Nyagatare", "Rukomo", "Rwempasha", "Rwimiyaga", "Tabagwe"] },
+            { name: "Bugesera", sectors: ["Gashora", "Juru", "Kamabuye", "Ntarama", "Mareba", "Mayange", "Musenyi", "Mwogo", "Ngeruka", "Nyamata", "Nyarugenge", "Rilima", "Ruhuha", "Rweru", "Shyara"] }
+
         ],
         "Western Province": [
-            { name: "Rubavu", sectors: ["Gisenyi", "Nyundo", "Kanama"] },
-            { name: "Nyabihu", sectors: ["Bwishyura", "Jenda", "Mukamira"] }
+            { name: "Rubavu", sectors: ["Bugeshi", "Busasamana", "Cyanzarwe", "Gisenyi", "Kanama", "Kanzenze", "Mudende", "Nyakiliba", "Nyamyumba", "Nyundo", "Rubavu", "Rugerero"] },
+            { name: "Karongi", sectors: ["Bwishyura", "Gishari", "Gishyita", "Gitesi", "Mubuga", "Murambi", "Murundi", "Mutuntu", "Rwankuba", "Rubengera", "Rugabano", "Ruganda", "Twumba"] },
+            { name: "Nyaruguru", sectors: ["Busanze", "Cyahinda", "Kibeho", "Kivu", "Mata", "Munini", "Ngera", "Ngoma", "Nyabimata", "Nyagisozi", "Muganza", "Ruheru", "Ruramba", "Rusenge"] },
+            { name: "Rusizi", sectors: ["Bugarama", "Butare", "Bweyeye", "Gikundamvura", "Gashonga", "Giheke", "Gihundwe", "Gitambi", "Kamembe", "Muganza", "Mururu", "Nkanka", "Nkombo", "Nkungu", "Nyakabuye", "Nyakarenzo", "Nzahaha", "Rwimbogo"] },
+            { name: "Ngororero", sectors: ["Bwira", "Gatumba", "Hindiro", "Kabaya", "Kageyo", "Kavumu", "Matyazo", "Muhanda", "Muhororo", "Ndaro", "Ngororero", "Nyange", "Sovu"] },
+            { name: "Nyamasheke", sectors: ["Ruharambuga", "Bushekeri", "Bushenge", "Cyato", "Gihombo", "Kagano", "Kanjongo", "Karambi", "Karengera", "Kirimbi", "Macuba", "Nyabitekeri", "Mahembe", "Rangiro", "Shangi"] },
+            { name: "Nyabihu", sectors: ["Bigogwe", "Jenda", "Jomba", "Kabatwa", "Karago", "Kintobo", "Makamira", "Muringa", "Rambura", "Rugera", "Rurembo", "Shyira"] }
         ]
     };
 
