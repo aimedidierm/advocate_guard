@@ -130,4 +130,15 @@ class ReportController extends Controller
         $pdf = Pdf::loadView('pdf.report', compact('reports'));
         return $pdf->download('reports.pdf');
     }
+
+    public function destroy(int $id)
+    {
+        $report = Report::find($id);
+        if ($report) {
+            $report->delete();
+            return redirect('/admin/reporting')->with('success', 'Report delete successfully.');
+        } else {
+            return redirect('/admin/reporting')->withErrors('Report not found');
+        }
+    }
 }

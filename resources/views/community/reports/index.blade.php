@@ -2,15 +2,16 @@
 
 @section('content')
 
-<x-child-navbar />
+<x-community-navbar />
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
         <div class="flex justify-between">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ __('messages.childreport.title') }}</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{
+                __('messages.childreport.title') }}</h5>
             <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
                 class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 type="button">
-                 {{ __('messages.childreport.createbtn') }}
+                {{ __('messages.childreport.createbtn') }}
             </button>
         </div>
         <x-message-component />
@@ -19,7 +20,8 @@
             <div class="relative w-full max-w-2xl max-h-full">
                 <div class="bg-white rounded-lg shadow dark:bg-gray-700">
                     <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ __('messages.childreport.subtitle') }}</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{
+                            __('messages.childreport.subtitle') }}</h3>
                         <button type="button"
                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
                             data-modal-hide="defaultModal">
@@ -35,72 +37,89 @@
                         <form action="/community/reporting" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-6">
-                                <label for="type_abuse" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.childreport.category') }}</label>
-                                 <select name="type_abuse" id="type_abuse" onchange="updateDescription()"
-                                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                                      <option value="" disabled selected>--{{ __('messages.childreport.categorySelect') }}--</option>
-                                      <option value="Physical abuse">{{ __('messages.childreport.physical') }}</option>
-                                      <option value="Emotional abuse">{{ __('messages.childreport.emotion') }}</option>
-                                      <option value="Neglect">{{ __('messages.childreport.neglect') }}</option>
-                                      <option value="Sexual abuse">{{ __('messages.childreport.sexual') }}</option>
-                                 </select>
-                    </div>
+                                <label for="type_abuse"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                                    __('messages.childreport.category') }}</label>
+                                <select name="type_abuse" id="type_abuse" onchange="updateDescription()"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    <option value="" disabled selected>--{{ __('messages.childreport.categorySelect')
+                                        }}--</option>
+                                    <option value="Physical abuse">{{ __('messages.childreport.physical') }}</option>
+                                    <option value="Emotional abuse">{{ __('messages.childreport.emotion') }}</option>
+                                    <option value="Neglect">{{ __('messages.childreport.neglect') }}</option>
+                                    <option value="Sexual abuse">{{ __('messages.childreport.sexual') }}</option>
+                                </select>
+                            </div>
                             <div id="abuse-description" class="mt-2 text-sm text-gray-600 dark:text-gray-400"></div>
                             <div class="mb-6">
                                 <label for="description"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.childreport.description') }}</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                                    __('messages.childreport.description') }}</label>
                                 <textarea id="description" name="description"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                     required></textarea>
                             </div>
                             <div class="mb-6">
-    <label for="province" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.childreport.province') }}</label>
-    <select name="province" id="province" onchange="updateDistricts()"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-        <option value="" disabled selected>--{{ __('messages.childreport.provinceSelect') }}--</option>
-        <option value="Kigali">Kigali</option>
-        <option value="Northern Province"> {{ __('messages.childreport.northern') }} </option>
-        <option value="Southern Province"> {{ __('messages.childreport.southern') }} </option>
-        <option value="Eastern Province"> {{ __('messages.childreport.eastern') }} </option>
-        <option value="Western Province"> {{ __('messages.childreport.western') }} </option>
-    </select>
-</div>
+                                <label for="province"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                                    __('messages.childreport.province') }}</label>
+                                <select name="province" id="province" onchange="updateDistricts()"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    <option value="" disabled selected>--{{ __('messages.childreport.provinceSelect')
+                                        }}--</option>
+                                    <option value="Kigali">Kigali</option>
+                                    <option value="Northern Province"> {{ __('messages.childreport.northern') }}
+                                    </option>
+                                    <option value="Southern Province"> {{ __('messages.childreport.southern') }}
+                                    </option>
+                                    <option value="Eastern Province"> {{ __('messages.childreport.eastern') }} </option>
+                                    <option value="Western Province"> {{ __('messages.childreport.western') }} </option>
+                                </select>
+                            </div>
 
-<div class="mb-6">
-    <label for="district" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.childreport.district') }}</label>
-    <select name="district" id="district"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-        <option value="" disabled selected>--{{ __('messages.childreport.districtSelect') }}--</option>
-    </select>
-</div>
+                            <div class="mb-6">
+                                <label for="district"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                                    __('messages.childreport.district') }}</label>
+                                <select name="district" id="district"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    <option value="" disabled selected>--{{ __('messages.childreport.districtSelect')
+                                        }}--</option>
+                                </select>
+                            </div>
 
-<div class="mb-6">
-    <label for="sector" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.childreport.sector') }}</label>
-    <select name="sector" id="sector"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-        <option value="" disabled selected>--{{ __('messages.childreport.sectorSelect') }}--</option>
-    </select>
-</div>
+                            <div class="mb-6">
+                                <label for="sector"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                                    __('messages.childreport.sector') }}</label>
+                                <select name="sector" id="sector"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    <option value="" disabled selected>--{{ __('messages.childreport.sectorSelect') }}--
+                                    </option>
+                                </select>
+                            </div>
                             <div class="mb-6">
                                 <label for="date_incident"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.childreport.date_incident') }}</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                                    __('messages.childreport.date_incident') }}</label>
                                 <input type="date" id="date_incident" name="date_incident"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                     required>
                             </div>
                             <div class="mb-6">
                                 <label for="attachments"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.childreport.attachment') }}</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                                    __('messages.childreport.attachment') }}</label>
                                 <input type="file" id="attachments" name="attachments[]"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                                     multiple>
                             </div>
-                            
+
                             <button type="submit"
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 {{ __('messages.childreport.reportbtn') }}</button>
-                                <script>
-                                 function updateDescription() {
+                            <script>
+                                function updateDescription() {
                                 const descriptionElement = document.getElementById('abuse-description');
                                   const typeAbuse = document.getElementById('type_abuse').value;
 
@@ -113,9 +132,9 @@
 
                           descriptionElement.textContent = descriptions[typeAbuse] || '';
                           }
-                        </script>
-                        <script>
-    const districts = {
+                            </script>
+                            <script>
+                                const districts = {
         "Kigali": [
             { name: "Gasabo", sectors: ["Bumbogo", "Gatsata", "Jali", "Gikomero", "Gisozi", "Jabana", "Kinyinya", "Ndera", "Nduba", "Rusororo", "Rutunga", "Kacyiru", "Kimihurura", "Kimironko", "Remera"] },
             { name: "Nyarugenge", sectors: ["Gitega", "Kanyinya", "Kigali", "Kimisagara", "Mageragere", "Muhima", "Nyakabanda", "Nyamirambo", "Nyarugenge", "Rwezamenyo"] },
@@ -187,7 +206,7 @@
             });
         }
     });
-</script>
+                            </script>
                         </form>
                     </div>
                 </div>
@@ -228,7 +247,8 @@
                         <td class="px-6 py-4">{{$item->status}}</td>
                         <td class="flex px-6 py-4">
                             <a href="/community/reporting/{{$item->id}}"
-                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ __('messages.childreport.more') }}</a>
+                                class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">{{
+                                __('messages.childreport.more') }}</a>
                         </td>
                     </tr>
                     @endforeach
@@ -274,12 +294,14 @@
                 @if ($page == $reports->currentPage())
                 <li>
                     <a href="#" aria-current="page"
-                        class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">{{ $page }}</a>
+                        class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">{{
+                        $page }}</a>
                 </li>
                 @else
                 <li>
                     <a href="{{ $url }}"
-                        class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{ $page }}</a>
+                        class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{
+                        $page }}</a>
                 </li>
                 @endif
                 @endforeach

@@ -14,14 +14,18 @@ return new class extends Migration
         Schema::table('reports', function (Blueprint $table) {
             // Drop unused columns
             $table->dropColumn(['subject']);
-            
+            $table->dropColumn(['victim']);
+            $table->dropColumn(['location']);
+            $table->dropColumn(['when']);
+            $table->dropColumn(['leaning']);
+            $table->dropColumn(['category']);
+
             // Add new columns
-            $table->string('type_abuse');
-            $table->string('province');
-            $table->string('district');
-            $table->string('sector');
-            $table->date('date_incident');
-            
+            $table->string('type_abuse')->nullable();
+            $table->string('province')->nullable();
+            $table->string('district')->nullable();
+            $table->string('sector')->nullable();
+            $table->date('date_incident')->nullable();
         });
     }
 
@@ -31,9 +35,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('reports', function (Blueprint $table) {
-            // Reverse the changes
-           
-            $table->string('subject');
             $table->dropColumn(['type_abuse', 'province', 'district', 'sector', 'date_incident']);
         });
     }

@@ -9,6 +9,8 @@ use App\Models\Survey;
 use App\Models\SurveyAnswer;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -21,6 +23,27 @@ class DashboardController extends Controller
         $surveysAnswers = SurveyAnswer::count();
         $campaignReach = User::count();
         $activeUsers = User::count();
+
+        // Report statistics
+        $totalReports = Report::count();
+        $activeReports = Report::where('still_going', true)->count();
+        $reportsByCategory = Report::select('type_abuse', DB::raw('count(*) as count'))
+            ->groupBy('type_abuse')
+            ->get();
+        $reportsByProvince = Report::select('province', DB::raw('count(*) as count'))
+            ->groupBy('province')
+            ->get();
+        $recentReports = Report::where('created_at', '>=', now()->subDays(7))->count(); // Reports in the last 7 days
+
+        $reportsOverTime = Report::select(
+            DB::raw('DATE(created_at) as date'),
+            DB::raw('count(*) as count')
+        )
+            ->where('created_at', '>=', now()->subDays(30))
+            ->groupBy(DB::raw('DATE(created_at)'))
+            ->orderBy(DB::raw('DATE(created_at)'), 'asc')
+            ->pluck('count', 'date');
+
         return view('admin.dashboard', compact(
             'users',
             'campaigns',
@@ -28,9 +51,16 @@ class DashboardController extends Controller
             'surveysAnswers',
             'campaignReach',
             'reports',
-            'activeUsers'
+            'activeUsers',
+            'totalReports',
+            'activeReports',
+            'reportsByCategory',
+            'reportsByProvince',
+            'recentReports',
+            'reportsOverTime'
         ));
     }
+
 
     public function child()
     {
@@ -54,5 +84,16 @@ class DashboardController extends Controller
         ];
 
         return view('community.dashboard', compact('reportData'));
+    }
+
+    public function landingPageResources()
+    {
+        $files = Storage::disk('public')->files('resources');
+
+        $pdfFiles = collect($files)->filter(function ($file) {
+            return strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'pdf';
+        });
+
+        return view('resources', ['pdfFiles' => $pdfFiles]);
     }
 }
