@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reported Abuse Notification</title>
+    <title>{{ __('messages.email_viewed.headerTitle') }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -87,47 +87,47 @@
     <div class="container">
 
         <div class="header">
-            <h1>Update on Your Reported Abuse Notification</h1>
+            <h1>{{ __('messages.email_viewed.title') }}</h1>
         </div>
 
         <div class="content">
-            <p>Hello User,</p>
-            <p>Your abuse reported has been viewed of below are the details:</p>
+            <p>{{ __('messages.email_viewed.hello') }},</p>
+            <p>{{ __('messages.email_viewed.titleSub') }}:</p>
 
             <table>
-                <tr>
-                    <th>Category</th>
+            <tr>
+                    <th>{{ __('messages.email_viewed.category') }}</th>
                     <td>{{ $report->type_abuse }}</td>
                 </tr>
                 <tr>
-                    <th>Description</th>
+                    <th>{{ __('messages.email_viewed.discription') }}</th>
                     <td>{{ $report->description }}</td>
                 </tr>
                 <tr>
-                    <th>Names</th>
-                    <td>{{ $report->user->first_name }}</td>
+                    <th>{{ __('messages.email_viewed.names') }}</th>
+                    <td>{{ $report->user->first_name . ' ' . $report->user->last_name}}</td>
                 </tr>
                 <tr>
-                    <th>Province</th>
+                    <th>{{ __('messages.email_viewed.province') }}</th>
                     <td>{{ $report->province }}</td>
                 </tr>
                 <tr>
-                    <th>District</th>
+                    <th>{{ __('messages.email_viewed.district') }}</th>
                     <td>{{ $report->district }}</td>
                 </tr>
                 <tr>
-                    <th>Sector</th>
+                    <th>{{ __('messages.email_viewed.sector') }}</th>
                     <td>{{ $report->sector }}</td>
                 </tr>
                 <tr>
-                    <th>Date</th>
+                    <th>{{ __('messages.email_viewed.date') }}</th>
                     <td>{{ $report->date_incident }}</td>
                 </tr>
             </table>
         </div>
 
         <div class="footer">
-            <p>This is an automated email. Please do not reply to this message.</p>
+            <p>{{ __('messages.email_admin.footerMsg') }}.</p>
         </div>
     </div>
 </body>

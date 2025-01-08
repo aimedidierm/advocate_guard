@@ -9,19 +9,33 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100" >
+
     <x-landing-page-navbar />
-    <div class="max-w-7xl mx-auto py-12 px-4">
+    <div class="max-w-7xl mx-auto py-12 px-4" >
         <div class="text-center mb-10">
             <h1 class="text-3xl font-bold text-gray-800"> {{ __('messages.contactus.title') }}</h1>
             <p class="text-gray-600 mt-2"> {{ __('messages.contactus.subtitle') }}
             </p>
         </div>
-
         <div class="flex flex-wrap justify-center">
             <div class="w-full md:w-1/2 lg:w-1/3 p-4">
                 <form action="/contact" method="POST" class="space-y-6">
                     @csrf
+                    @if (session('success'))
+                    <div class="bg-green-100 text-green-800 p-4 rounded-md mb-6">
+                            {{ session('success') }}
+                    </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="bg-red-100 text-red-800 p-4 rounded-md mb-6">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700">
                             {{ __('messages.contactus.name') }}</label>
@@ -45,7 +59,7 @@
                     </div>
                     <div>
                         <button type="submit"
-                            class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             {{ __('messages.contactus.messagebtn') }}</button>
                     </div>
                 </form>
@@ -54,7 +68,7 @@
                 <br><br>
                 <h2 class="text-2xl font-bold text-gray-800">{{ __('messages.contactus.info') }}</h2>
                 <p class="text-gray-600 mt-2"> {{ __('messages.contactus.emailA') }}<a href="mailto:sergohakiza@gmail.com"
-                        class="text-blue-600 hover:underline">sergohakiza@gmail.com</a></p>
+                        class="text-blue-600 hover:underline"> sergohakiza@gmail.com</a></p>
                 <p class="text-gray-600 mt-2">{{ __('messages.contactus.phoneA') }} <a href="tel:+250787360929"
                         class="text-blue-600 hover:underline">+250 787 360 929</a></p>
             </div>

@@ -42,8 +42,9 @@
                     <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->province }}</td>
                     <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->district }}</td>
                     <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->sector }}</td>
-                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->still_going ? 'Still Ongoing' :
-                        'Resolved' }}</td>
+                    <!-- <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->still_going ? 'Still Ongoing' :
+                        'Resolved' }}</td> -->
+                    <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->status }}</td>
                     <td style="padding: 8px; border: 1px solid #0c0c0c;">{{ $report->date_incident }}</td>
                 </tr>
                 @endforeach

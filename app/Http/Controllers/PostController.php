@@ -19,7 +19,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'content' => 'required|string|max:255',
+            'content' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -54,7 +54,7 @@ class PostController extends Controller
     public function comment(Request $request, Post $post)
     {
         $request->validate([
-            'content' => 'required|string|max:255',
+            'content' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 

@@ -116,7 +116,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">Delete{{ __('messages.admincourseSub.deletebtn') }}</button>
+                                    class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">{{ __('messages.admincourseSub.deletebtn') }}</button>
                             </form>
                         </td>
                     </tr>

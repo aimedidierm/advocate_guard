@@ -24,7 +24,7 @@
                     @else
                     <img src="/images/bg3.jpeg" alt="{{ $lesson->title }}" class="w-full h-32 sm:h-48 object-cover">
                     @endif <div class="p-4">
-                        <h4 class="text-lg font-semibold mb-2">{{ $lesson->title }}</h4>
+                        <h4 class="text-lg font-semibold mb-2 text-black dark:text-black">{{ $lesson->title }}</h4>
                         <p class="text-gray-600">{{ Str::limit($lesson->description, 100) }}</p>
                         <a href="
                         @if (Auth::user()->role == App\Enums\UserRole::COMMUNITY->value)

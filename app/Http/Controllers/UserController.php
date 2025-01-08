@@ -68,14 +68,47 @@ class UserController extends Controller
             if (Auth::user()->role == UserRole::ADMIN->value) {
                 return redirect('/admin/settings')->with('success', 'Account details updated successfully.');
             } elseif (Auth::user()->role == UserRole::COMMUNITY->value) {
-                return redirect('/child/settings')->with('success', 'Account details updated successfully.');
+                return redirect('/community/settings')->with('success', 'Account details updated successfully.');
             } else {
                 return redirect('/child/settings')->with('success', 'Account details updated successfully.');
             }
 
-            return redirect('/employer/settings');
         } else {
             return back()->withErrors('Passwords not match');
         }
     }
+
+    // admin update for user accounts
+    public function updateUser(Request $request)
+{
+    $request->validate([
+        'userId' => 'required',
+        'first_name' => 'required|string',
+        'last_name' => 'required|string',
+        'phone_number' => 'required|numeric',
+        'country' => 'required|string',
+        'address' => 'required|string',
+        'password' => 'required|string',
+        'confirmPassword' => 'required|string',
+    ]);
+
+    $user = User::find($request->userId);
+
+    if ($request->password === $request->confirmPassword) {
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->phone_number = $request->phone_number;
+        $user->country = $request->country;
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->update();
+
+        return redirect('/admin/users')->with('success', 'User details updated successfully.');
+    } else {
+        return back()->withErrors('Passwords do not match.');
+    }
+}
+    
+
 }

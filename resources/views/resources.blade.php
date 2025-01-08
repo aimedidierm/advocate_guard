@@ -13,23 +13,23 @@
     <x-landing-page-navbar />
     <div class="max-w-7xl mx-auto py-12 px-4">
         <div class="text-center">
-            <h1 class="text-2xl font-bold text-gray-800">Our Resources</h1>
+            <h1 class="text-2xl font-bold text-gray-800">{{ __('messages.resources_landing.title') }}</h1>
             <p class="text-gray-600 mt-4">
-                Search through a collection of child protection policies and legislation in Rwanda.
+                {{ __('messages.resources_landing.titleSub') }}.
             </p>
         </div>
         <div class="bg-white shadow-md rounded-lg mt-8 overflow-hidden">
             <div class="p-4 border-b border-gray-200">
-                <h2 class="text-xl font-bold text-gray-800">Documents</h2>
+                <h2 class="text-xl font-bold text-gray-800">{{ __('messages.resources_landing.document') }}</h2>
             </div>
             <table class="min-w-full table-auto">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="text-left px-4 py-2 text-gray-600 font-medium">Title</th>
-                        {{-- <th class="text-left px-4 py-2 text-gray-600 font-medium">Info</th> --}}
-                        <th class="text-left px-4 py-2 text-gray-600 font-medium">Modified</th>
-                        <th class="text-left px-4 py-2 text-gray-600 font-medium">Open</th>
-                        <th class="text-left px-4 py-2 text-gray-600 font-medium">Download</th>
+                        <th class="text-left px-4 py-2 text-gray-600 font-medium">{{ __('messages.resources_landing.titleList') }}</th>
+                        {{-- <th class="text-left px-4 py-2 text-gray-600 font-medium">{{ __('messages.resources_landing.info') }}</th> --}}
+                        <th class="text-left px-4 py-2 text-gray-600 font-medium">{{ __('messages.resources_landing.modified') }}</th>
+                        <th class="text-left px-4 py-2 text-gray-600 font-medium">{{ __('messages.resources_landing.open') }}</th>
+                        <th class="text-left px-4 py-2 text-gray-600 font-medium">{{ __('messages.resources_landing.download') }}</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -50,7 +50,7 @@
                             </a>
                         </td>
                         {{-- <td class="px-4 py-3">9MB</td> --}}
-                        <td class="px-4 py-3">Dec 29, 2024</td>
+                        <td class="px-4 py-3">Dec 20, 2024</td>
                         <td class="px-4 py-3 text-center">
                             <a href="{{ $filePath }}" target="_blank" class="text-blue-500 hover:text-blue-600">
                                 <svg class="w-6 h-6 text-blue-500 dark:text-white" aria-hidden="true"

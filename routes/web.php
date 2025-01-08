@@ -15,6 +15,7 @@ use App\Http\Middleware\ChildMiddleware;
 use App\Http\Middleware\CommunityMiddleware;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 Route::group(
     ["middleware" => SetLocale::class],
@@ -35,6 +36,9 @@ Route::group(
         Route::get('/campaign-details/{id}', [CampaignController::class, 'campaignDetails']);
         Route::get('/resources', [DashboardController::class, 'landingPageResources']);
         Route::view('/contact-us', 'contact-us');
+
+        // Contact Form Submission Route
+        Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
         Route::group(
             ["prefix" => "auth", "as" => "auth."],
@@ -64,6 +68,11 @@ Route::group(
                 Route::resource('/survey-answers', SurveyAnswerController::class)->only('index', 'show');
                 Route::resource('/campaign', CampaignController::class)->only('index', 'show', 'store', 'destroy');
                 Route::get('/campaign-launch/{id}', [CampaignController::class, 'launch']);
+                 // Add the contacts route here
+                Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+                Route::put('/users', [UserController::class, 'updateUser'])->name('users.updateUser');
+                Route::resource('/contacts', ContactController::class, )->only('destroy');
+                
             }
         );
 

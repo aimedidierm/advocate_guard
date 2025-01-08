@@ -97,6 +97,15 @@
                 </a>
             </li>
             <li>
+                <a href="/admin/contacts"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <span class="material-symbols-outlined">
+                        contact_phone
+                    </span>            
+                    <span class="flex-1 ml-3 whitespace-nowrap">{{ __('messages.admin.contactUs') }}</span>
+                </a>
+            </li>
+            <li>
                 <a href="/admin/settings"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <span class="material-symbols-outlined">
