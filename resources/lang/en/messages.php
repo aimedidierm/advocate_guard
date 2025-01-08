@@ -25,8 +25,8 @@ return [
         'Signup' => 'Signup',
     ],
     'register' => [
-        'welcomeTitle' =>'Welcome To AdvocateGuard',
-        'welcomeTitleSub' =>'An intelligent platform empowering individuals and organizations to advocate and raise awareness for child protection in Rwanda.',
+        'welcomeTitle' => 'Welcome To AdvocateGuard',
+        'welcomeTitleSub' => 'An intelligent platform empowering individuals and organizations to advocate and raise awareness for child protection in Rwanda.',
         'Title' => 'Register your account',
         'first_name' => 'First name',
         'h_first_name' => 'Enter your first name',
@@ -119,7 +119,7 @@ return [
 
     ],
     'admincourseSubLesson' => [
-        'backBtn' => 'Back',   
+        'backBtn' => 'Back',
 
     ],
     'campaign' => [
@@ -127,7 +127,10 @@ return [
         'createbtn' => 'Create new',
         'subtitle' => 'Create new campaign',
         'name' => 'Name',
-        'date' => 'Date',
+        'startdate' => 'Start Date',
+        'image' => 'Cover Image',
+        'enddate' => 'End Date',
+        'progress' => 'Progress',
         'objective' => 'Description',
         'goal' => 'Goals',
         'plgoal' => 'Goal 1',
@@ -308,7 +311,7 @@ return [
         '' => '',
         '' => '',
         '' => '',
-        
+
     ],
     'e-learning' => [
         'title' => 'Courses',
@@ -459,7 +462,7 @@ return [
         'sector' => 'Sector',
         'date' => 'Date',
         'footerMsg' => 'This is an automated email. Please do not reply to this messageDate',
-        
+
     ],
     'email_viewed' => [
         'headerTitle' => 'Reported Abuse Notification',
@@ -474,7 +477,7 @@ return [
         'sector' => 'Sector',
         'date' => 'Date',
         'footerMsg' => 'This is an automated email. Please do not reply to this message',
-        
+
     ],
     'email_resolved' => [
         'headerTitle' => 'Reported Abuse Notification',
@@ -488,7 +491,7 @@ return [
         'district' => 'District',
         'sector' => 'Sector',
         'date' => 'Date',
-        'footerMsg' => 'This is an automated email. Please do not reply to this message', 
+        'footerMsg' => 'This is an automated email. Please do not reply to this message',
     ],
     'resources_landing' => [
         'title' => 'Our Resources',

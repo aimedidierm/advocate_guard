@@ -23,7 +23,6 @@ class CampaignRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'date' => 'required|date',
             'objective' => 'required|string',
             'goals' => 'required|array',
             'goals.*' => 'string',
@@ -35,6 +34,9 @@ class CampaignRequest extends FormRequest
             'timeline.*' => 'string',
             'role_responsibilities' => 'required|array',
             'role_responsibilities.*' => 'string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
         ];
     }
 }

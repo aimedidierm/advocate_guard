@@ -17,12 +17,19 @@
             @foreach ($campaigns as $campaign)
             <div
                 class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                <img src="/images/campaign.png" alt="Tour 1" class="object-cover" style="height: 6cm; width: 100%">
+                @if ($campaign->image)
+                <img id="profileImagePreview" src="{{ asset('storage/' . $campaign->image) }}" alt="Campaign Image"
+                    class="object-cover" style="height: 6cm; width: 100%">
+                @else
+                <img id="profileImagePreview" src="{{ asset('images/bg2.jpeg') }}" alt="Default Campaign Image"
+                    class="object-cover" style="height: 6cm; width: 100%">
+                @endif
                 <div class="p-6">
                     <h3 class="text-xl font-semibold text-gray-800">{{$campaign->name}}</h3>
                     <p class="text-gray-600 mt-2">{{$campaign->objective}}</p>
                     <a href="/campaign-details/{{$campaign->id}}"
-                        class="text-green-600 hover:text-green-700 mt-4 inline-block"> {{ __('messages.campaignhome.learnmore') }}</a>
+                        class="text-green-600 hover:text-green-700 mt-4 inline-block"> {{
+                        __('messages.campaignhome.learnmore') }}</a>
                 </div>
             </div>
             @endforeach

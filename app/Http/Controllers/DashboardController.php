@@ -8,6 +8,7 @@ use App\Models\Report;
 use App\Models\Survey;
 use App\Models\SurveyAnswer;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -47,7 +48,7 @@ class DashboardController extends Controller
             ->orderBy(DB::raw('DATE(created_at)'), 'asc')
             ->pluck('count', 'date');
 
-            // Monthly reports grouped by status (Pending, Viewed, Resolved)
+        // Monthly reports grouped by status (Pending, Viewed, Resolved)
         $monthlyReports = Report::select(
             DB::raw('DATE_FORMAT(created_at, "%Y-%m") as month'),
             DB::raw('SUM(status = "pending") as pending'),
@@ -90,7 +91,7 @@ class DashboardController extends Controller
         // ];
         // return view('child.dashboard', compact('reportData'));
         // Retrieve child-specific report data
-       
+
         $childName = Auth::user()->first_name;
 
         $reportData = [
@@ -124,6 +125,7 @@ class DashboardController extends Controller
 
     public function community()
     {
+        $campaigns = Campaign::where('start_date', '>', Carbon::now())->get();
         $communitydName = Auth::user()->first_name;
         $reportData = [
             'total_surveys' => Survey::count(),
@@ -138,7 +140,7 @@ class DashboardController extends Controller
             return strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'pdf';
         });
 
-        return view('community.dashboard', compact('reportData', 'pdfFiles', 'communitydName'));
+        return view('community.dashboard', compact('reportData', 'pdfFiles', 'communitydName', 'campaigns'));
     }
 
     public function landingPageResources()
@@ -151,5 +153,4 @@ class DashboardController extends Controller
 
         return view('resources', ['pdfFiles' => $pdfFiles]);
     }
-
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Enums\CampaignStage;
 use App\Http\Requests\CampaignRequest;
 use App\Models\Campaign;
+use App\Models\Progress;
+use Illuminate\Support\Facades\Request;
 
 class CampaignController extends Controller
 {
@@ -28,15 +30,19 @@ class CampaignController extends Controller
      */
     public function store(CampaignRequest $request)
     {
+        $imagePath = $request->file('image')->store('campaign_images', 'public');
+
         Campaign::create([
             'name' => $request->input('name'),
-            'date' => $request->input('date'),
             'objective' => $request->input('objective'),
             'goals' => json_encode($request->input('goals')),
             'target_audience' => json_encode($request->input('target_audience')),
             'budget_resources' => json_encode($request->input('budget_resources')),
             'timeline' => json_encode($request->input('timeline')),
             'role_responsibilities' => json_encode($request->input('role_responsibilities')),
+            'image' => $imagePath,
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
         ]);
 
         return redirect('/admin/campaign')->with('success', 'Campaign created');
@@ -91,5 +97,38 @@ class CampaignController extends Controller
         } else {
             return redirect()->back()->withErrors('Campaign not found');
         }
+    }
+
+    public function updateProgress(int $id, Request $request)
+    {
+        $campaignProgress = Progress::where('campaign_id', $id)->first();
+
+        if ($campaignProgress) {
+            $validated = $request->validate([
+                'objective' => 'required|boolean',
+                'goals' => 'required|boolean',
+                'target_audience' => 'required|boolean',
+                'budget_resources' => 'required|boolean',
+            ]);
+
+            $campaignProgress->progress()->update($validated);
+
+            return response()->json(['message' => 'Progress updated successfully']);
+        } else {
+            Progress::create([
+                'campaign_id' => $id,
+            ]);
+        }
+        return response()->json(['message' => 'Progress updated successfully']);
+    }
+
+    public function getProgress(int $id)
+    {
+        $campaign = Campaign::find($id);
+        $progress = $campaign->progress;
+
+        return response()->json([
+            'progress' => $progress
+        ]);
     }
 }

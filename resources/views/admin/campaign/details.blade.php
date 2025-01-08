@@ -17,9 +17,16 @@
 
         @if($campaign)
         <div class="mt-4">
+            @if ($campaign->image)
+            <img id="profileImagePreview" src="{{ asset('storage/' . $campaign->image) }}" alt="Campaign Image">
+            @else
+            <img id="profileImagePreview" src="{{ asset('images/bg2.jpeg') }}" alt="Default Campaign Image">
+            @endif
             <h6 class="font-semibold">{{ __('messages.campaigndisplay.objective') }}</h6>
             <p>{{ $campaign->objective }}</p>
             <h6 class="font-semibold">{{ __('messages.campaigndisplay.goal') }}</h6>
+            <h6 class="font-semibold">{{ __('messages.campaign.startdate') }}: {{ $campaign->start_date }}</h6>
+            <h6 class="font-semibold">{{ __('messages.campaign.enddate') }}: {{ $campaign->end_date }}</h6>
             <ul>
                 @foreach(json_decode($campaign->goals, true) as $index => $goal)
                 <li>

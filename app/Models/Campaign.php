@@ -8,7 +8,6 @@ class Campaign extends Model
 {
     protected $fillable = [
         'name',
-        'date',
         'objective',
         'goals',
         'target_audience',
@@ -16,5 +15,13 @@ class Campaign extends Model
         'timeline',
         'role_responsibilities',
         'stage',
+        'image',
+        'start_date',
+        'end_date',
     ];
+
+    public function progress()
+    {
+        return $this->hasOne(Progress::class);
+    }
 }

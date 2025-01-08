@@ -67,12 +67,14 @@ Route::group(
                 Route::resource('/survey', SurveyController::class)->only('index', 'show', 'store', 'destroy');
                 Route::resource('/survey-answers', SurveyAnswerController::class)->only('index', 'show');
                 Route::resource('/campaign', CampaignController::class)->only('index', 'show', 'store', 'destroy');
+                // In your routes/web.php
+                Route::post('/campaign-progress/{id}/update-progress', [CampaignController::class, 'updateProgress']);
+                Route::get('/campaign-progress/{id}/progress', [CampaignController::class, 'getProgress']);
                 Route::get('/campaign-launch/{id}', [CampaignController::class, 'launch']);
-                 // Add the contacts route here
+                // Add the contacts route here
                 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
                 Route::put('/users', [UserController::class, 'updateUser'])->name('users.updateUser');
-                Route::resource('/contacts', ContactController::class, )->only('destroy');
-                
+                Route::resource('/contacts', ContactController::class,)->only('destroy');
             }
         );
 

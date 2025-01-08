@@ -25,8 +25,8 @@ return [
         'Signup' => 'Yifungure',
     ],
     'register' => [
-        'welcomeTitle' =>'Murakaza neza kuri AdvocateGuard',
-        'welcomeTitleSub' =>'Ihuriro ryubwenge riha imbaraga abantu nimiryango kunganira no gukangurira kurengera abana mu Rwanda.',
+        'welcomeTitle' => 'Murakaza neza kuri AdvocateGuard',
+        'welcomeTitleSub' => 'Ihuriro ryubwenge riha imbaraga abantu nimiryango kunganira no gukangurira kurengera abana mu Rwanda.',
         'Title' => 'Fungura Konti yawe',
         'first_name' => 'Imzina Bwite',
         'h_first_name' => 'Andika izina',
@@ -117,7 +117,7 @@ return [
 
     ],
     'admincourseSubLesson' => [
-        'backBtn' => 'Subira Inyuma',   
+        'backBtn' => 'Subira Inyuma',
 
     ],
     'campaign' => [
@@ -125,7 +125,10 @@ return [
         'createbtn' => 'Ongeraho indi',
         'subtitle' => 'Ongeraho Kampanye Shya',
         'name' => 'Izina',
-        'date' => 'Itariki',
+        'enddate' => 'Itariki Yo Gutangira',
+        'startdate' => 'Itariki Yo Kurangiza',
+        'image' => 'ifoto Itangira',
+        'progress' => 'Aho bijyeze',
         'objective' => 'Ibisobanuro',
         'goal' => 'Intego',
         'plgoal' => 'Intego 1',
@@ -244,7 +247,7 @@ return [
         'numberReportChart' => 'Umubare wa Raporo',
         'dateChart1' => 'Itariki',
         'numberReportChart1' => 'Umubare wa Raporo',
-        
+
     ],
     'child' => [
         'dashboard' => 'Ikibaho',
@@ -300,7 +303,7 @@ return [
         '' => '',
         '' => '',
         '' => '',
-        
+
     ],
     'e-learning' => [
         'title' => 'Amasomo',
@@ -452,7 +455,7 @@ return [
         'sector' => 'Umurenge',
         'date' => 'Itariki',
         'footerMsg' => 'Iyi ni imeri yikora. Nyamuneka ntusubize ubu butumwa',
-        
+
     ],
     'email_resolved' => [
         'headerTitle' => 'Raporo Yamenyeshejwe Ihohoterwa',
@@ -467,7 +470,7 @@ return [
         'sector' => 'Umurenge',
         'date' => 'Itariki',
         'footerMsg' => 'Iyi ni imeri yikora. Nyamuneka ntusubize ubu butumwa',
-        
+
     ],
     'resources_landing' => [
         'title' => 'Ibikoresho Byacu',
