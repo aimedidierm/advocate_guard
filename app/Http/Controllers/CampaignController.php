@@ -6,7 +6,7 @@ use App\Enums\CampaignStage;
 use App\Http\Requests\CampaignRequest;
 use App\Models\Campaign;
 use App\Models\Progress;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class CampaignController extends Controller
 {
@@ -115,7 +115,7 @@ class CampaignController extends Controller
                 'budget_resources' => 'required|boolean',
             ]);
 
-            $campaignProgress->progress()->update($validated);
+            $campaignProgress->update($validated);
 
             return response()->json(['message' => 'Progress updated successfully']);
         } else {

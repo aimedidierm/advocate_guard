@@ -194,14 +194,13 @@
                         <td class="px-6 py-4">
                             @php
                             $stepsCompleted = 0;
-                            $totalSteps = 4; // total steps (objective, goals, target_audience, budget_resources)
+                            $totalSteps = 4;
                             $progress = $item->progress;
-                            // Count the number of completed steps
                             if ($progress->objective) $stepsCompleted++;
                             if ($progress->goals) $stepsCompleted++;
                             if ($progress->target_audience) $stepsCompleted++;
                             if ($progress->budget_resources) $stepsCompleted++;
-                            // Calculate the progress percentage
+
                             $progressPercentage = ($stepsCompleted / $totalSteps) * 100;
                             @endphp
 
@@ -242,7 +241,7 @@
                             <form id="progressForm">
                                 <div class="mt-4">
                                     <label class="flex items-center">
-                                        <input type="checkbox" id="objective" class="mr-2">
+                                        <input type="checkbox" id="objectivee" class="mr-2">
                                         Objective
                                     </label>
                                 </div>
@@ -370,7 +369,7 @@
             .then(response => {
                 let progress = response.data.progress;
                 
-                document.getElementById('objective').checked = progress.objective;
+                document.getElementById('objectivee').checked = progress.objective;
                 document.getElementById('goals').checked = progress.goals;
                 document.getElementById('target_audience').checked = progress.target_audience;
                 document.getElementById('budget_resources').checked = progress.budget_resources;
@@ -394,7 +393,7 @@
         let campaignId = form.dataset.campaignId;
 
         let updatedProgress = {
-            objective: document.getElementById('objective').checked,
+            objective: document.getElementById('objectivee').checked,
             goals: document.getElementById('goals').checked,
             target_audience: document.getElementById('target_audience').checked,
             budget_resources: document.getElementById('budget_resources').checked
@@ -405,7 +404,8 @@
                 alert('Progress updated successfully!');
                 closeModal();
                 
-                updateProgressBar(campaignId);
+                // updateProgressBar(campaignId);
+                location.reload();
             })
             .catch(error => {
                 console.error(error);
