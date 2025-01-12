@@ -26,7 +26,7 @@
                 @endif
                 <div class="p-6">
                     <h3 class="text-xl font-semibold text-gray-800">{{$campaign->name}}</h3>
-                    <p class="text-gray-600 mt-2">{{$campaign->objective}}</p>
+                    <p class="text-gray-600 mt-2">{{ Str::limit($campaign->objective, 150) }}</p>
                     <a href="/campaign-details/{{$campaign->id}}"
                         class="text-green-600 hover:text-green-700 mt-4 inline-block"> {{
                         __('messages.campaignhome.learnmore') }}</a>

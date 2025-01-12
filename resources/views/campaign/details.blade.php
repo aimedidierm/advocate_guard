@@ -17,9 +17,9 @@
             <h1 class="text-4xl font-bold">{{$campaign->name}}</h1>
         </div>
     </header>
-    @if (!$campaign->image)
+    @if ($campaign->image)
     <img id="profileImagePreview" src="{{ asset('storage/' . $campaign->image) }}" alt="Campaign Image"
-        class="object-cover" style="width: 100%">
+        class="object-cover" style="display: block; margin: 10px auto; width: 70%; padding-left: 20px; padding-right: 20px;">
     @else
     <img id="profileImagePreview" src="{{ asset('images/bg2.jpeg') }}" alt="Default Campaign Image" class="object-cover"
         style="width: 100%">
