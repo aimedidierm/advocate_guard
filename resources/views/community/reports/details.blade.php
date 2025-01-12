@@ -65,12 +65,17 @@
             <div>
                 <h6 class="font-semibold text-gray-700 dark:text-gray-300">{{
                     __('messages.childreportDetails.attachment') }}:</h6>
-                @if($report->attachments && is_array($report->attachments) && count($report->attachments) > 0)
+                @php
+                $attachments = json_decode($report->attachments);
+                @endphp
+
+                @if($attachments && is_array($attachments) && count($attachments) > 0)
                 <ul class="list-disc pl-5 space-y-1">
-                    @foreach($report->attachments as $attachment)
+                    @foreach($attachments as $attachment)
                     <li>
                         <a href="{{ asset('storage/' . $attachment) }}" target="_blank"
-                            class="text-blue-600 hover:underline">{{ basename($attachment) }}</a>
+                            class="text-blue-600 hover:underline">{{
+                            basename($attachment) }}</a>
                     </li>
                     @endforeach
                 </ul>
