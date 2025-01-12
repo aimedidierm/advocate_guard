@@ -6,7 +6,7 @@ use App\Enums\CampaignStage;
 use App\Http\Requests\CampaignRequest;
 use App\Models\Campaign;
 use App\Models\Progress;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class CampaignController extends Controller
 {
@@ -32,7 +32,7 @@ class CampaignController extends Controller
     {
         $imagePath = $request->file('image')->store('campaign_images', 'public');
 
-        Campaign::create([
+        $campaign = Campaign::create([
             'name' => $request->input('name'),
             'objective' => $request->input('objective'),
             'goals' => json_encode($request->input('goals')),
@@ -43,6 +43,10 @@ class CampaignController extends Controller
             'image' => $imagePath,
             'start_date' => $request->input('start_date'),
             'end_date' => $request->input('end_date'),
+        ]);
+
+        Progress::create([
+            'campaign' => $campaign->id,
         ]);
 
         return redirect('/admin/campaign')->with('success', 'Campaign created');
@@ -111,7 +115,7 @@ class CampaignController extends Controller
                 'budget_resources' => 'required|boolean',
             ]);
 
-            $campaignProgress->progress()->update($validated);
+            $campaignProgress->update($validated);
 
             return response()->json(['message' => 'Progress updated successfully']);
         } else {
