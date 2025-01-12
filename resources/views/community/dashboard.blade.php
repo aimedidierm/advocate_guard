@@ -69,7 +69,7 @@
         </div>
 
         <!-- Resource Files Section -->
-        <div class="bg-white shadow-lg rounded-lg dark:bg-gray-800 p-6 w-1/4">
+        <div class="bg-white shadow-lg rounded-lg dark:bg-gray-800 p-6 w-2/4">
             <h2 class="text-lg font-bold text-gray-900 dark:text-white">{{
                 __('messages.community_dashboard.resourcesTitle') }}</h2>
             <p class="text-gray-600 dark:text-gray-300 mt-2">

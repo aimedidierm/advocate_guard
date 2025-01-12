@@ -62,8 +62,21 @@ return [
         'message' => ' No data ',
         'delete' => 'Delete ',
         'update' => 'Update',
+        'updateTitle' => 'Update User Information',
+        'updateFName' => 'First Name',
+        'updateLName' => 'Last Name',
+        'updatePassport' => 'ID/Passport',
+        'updatePhNumber' => 'Phone Number',
+        'updateCountry' => 'Country',
+        'updateAddress' => 'Address',
+        'updateEmail' => 'Email',
+        'updatePassword' => 'Password',
+        'updateConfPassword' => 'Confirm Password',
+        'updateCancelBtn' => 'Cancel',
+        'update_updateBtn' => 'Update Details',
         '' => '',
         '' => '',
+
 
     ],
     'profile' => [

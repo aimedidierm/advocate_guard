@@ -46,7 +46,7 @@ class CampaignController extends Controller
         ]);
 
         Progress::create([
-            'campaign' => $campaign->id,
+            'campaign_id' => $campaign->id,
         ]);
 
         return redirect('/admin/campaign')->with('success', 'Campaign created');

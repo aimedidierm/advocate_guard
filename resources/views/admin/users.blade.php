@@ -54,8 +54,10 @@
                                     class="px-2 font-medium text-red-600 dark:text-red-500 hover:underline">{{ __('messages.users.delete') }}</button>
                             </form>
                             <button 
-    onclick="openUpdateModal('{{ $item->id }}', '{{ $item->first_name }}', '{{ $item->last_name }}', '{{ $item->phone_number }}', '{{ $item->country }}', '{{ $item->address }}', '{{ $item->email }}')" 
-    class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ __('messages.users.update') }}</button>
+                              onclick="openUpdateModal('{{ $item->id }}', '{{ $item->first_name }}', '{{ $item->last_name }}', '{{ $item->id_number }}', '{{ $item->phone_number }}', '{{ $item->country }}', '{{ $item->address }}', '{{ $item->email }}', )" 
+                              class="px-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                              {{ __('messages.users.update') }}
+                            </button>
 
                         </td>
                     </tr>
@@ -66,86 +68,114 @@
         </div>
         
         <!-- Add a Modal for the Update Form -->
-<!-- Update Modal -->
-<div id="updateModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-    <div class="bg-white p-6 rounded-lg w-1/3">
-        <h2 class="text-2xl font-bold mb-4">{{ __('messages.users.update') }}</h2>
-        
-        <form action="{{ route('admin.users.updateUser') }}" method="POST" id="updateForm">
-            @csrf
-            @method('PUT')
-            <input type="hidden" name="userId" id="userId">
-            
-            <div class="mb-4">
-                <label for="first_name" class="block">{{ __('messages.users.first_name') }}</label>
-                <input type="text" id="first_name" name="first_name" class="w-full px-4 py-2 border rounded" required>
-            </div>
-            
-            <div class="mb-4">
-                <label for="last_name" class="block">{{ __('messages.users.last_name') }}</label>
-                <input type="text" id="last_name" name="last_name" class="w-full px-4 py-2 border rounded" required>
-            </div>
-            
-            <div class="mb-4">
-                <label for="phone_number" class="block">{{ __('messages.users.phone_number') }}</label>
-                <input type="text" id="phone_number" name="phone_number" class="w-full px-4 py-2 border rounded" required>
-            </div>
-            
-            <div class="mb-4">
-                <label for="country" class="block">{{ __('messages.users.country') }}</label>
-                <input type="text" id="country" name="country" class="w-full px-4 py-2 border rounded" required>
-            </div>
-            
-            <div class="mb-4">
-                <label for="address" class="block">{{ __('messages.users.address') }}</label>
-                <input type="text" id="address" name="address" class="w-full px-4 py-2 border rounded" required>
-            </div>
-            
-            <div class="mb-4">
-                <label for="email" class="block">{{ __('messages.users.email') }}</label>
-                <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded" required>
-            </div>
-            
-            <div class="mb-4">
-                <label for="password" class="block">{{ __('messages.users.password') }}</label>
-                <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded" required>
-            </div>
-            
-            <div class="mb-4">
-                <label for="confirmPassword" class="block">{{ __('messages.users.confirmPassword') }}</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" class="w-full px-4 py-2 border rounded" required>
-            </div>
-            
-                  
-            <div class="flex justify-end">
-                <button type="button" onclick="closeUpdateModal()" class="px-4 py-2 bg-gray-400 text-white rounded-lg mr-2">{{ __('messages.cancel') }}</button>
-                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">{{ __('messages.save') }}</button>
-            </div>
-        </form>
-    </div>
-</div>
+        <!-- Update Modal -->
+        <div id="updateModal" class="max-w-full mx-auto rounded p-6 shadow-md dark:border-gray-700 hidden">
+            <div class=" dark:border-gray-700 p-6 rounded-lg w-3/4 dark:text-gray-400">
+                <h2 class="text-2xl font-bold mb-4">{{ __('messages.users.updateTitle') }}</h2>
+                
+                                
+                <form action="{{ route('admin.users.updateUser') }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    
+                    <!-- Hidden field for User ID -->
+                    <input type="hidden" id="user_id" name="userId">
+                    
+                    <div class="flex space-x-4 py-2">
+                        <div class="w-1/3">
+                            <label for="first_name" class="block font-bold mb-2 ">{{ __('messages.users.updateFName') }}</label>
+                            <input type="text" id="first_name" name="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500s" placeholder="Enter First Name">
+                        </div>
+                        
+                        <div class="w-1/3">
+                            <label for="last_name" class="block font-bold mb-2">{{ __('messages.users.updateLName') }}</label>
+                            <input type="text" id="last_name" name="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500s" placeholder="Enter Last Name">
+                        </div>
 
-<script>
-   function openUpdateModal(id, firstName, lastName, phoneNumber, country, address, email) {
-    // Populate the modal with the user's data
-    document.getElementById('userId').value = id;
-    document.getElementById('first_name').value = firstName;
-    document.getElementById('last_name').value = lastName;
-    document.getElementById('phone_number').value = phoneNumber;
-    document.getElementById('country').value = country;
-    document.getElementById('address').value = address;
-    document.getElementById('email').value = email;
-    
-    // Display the modal
-    document.getElementById('updateModal').classList.remove('hidden');
-}
+                        <div class="w-1/3">
+                            <label for="passport" class="block font-bold mb-2">{{ __('messages.users.updatePassport') }}</label>
+                            <input type="text" id="id_number" name="id_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500s" placeholder="Enter ID/Passport">
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 py-2">
+                        <div class="w-1/3">
+                            <label for="phone_number" class="block font-bold mb-2">{{ __('messages.users.updatePhNumber') }}</label>
+                            <input type="text" id="phone_number" name="phone_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500s" placeholder="Enter Phone Number">
+                        </div>
+                        
+                        <div class="w-1/3">
+                            <label for="country" class="block font-bold mb-2">{{ __('messages.users.updateCountry') }}</label>
+                            <input type="text" id="country" name="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500s" placeholder="Enter Country">
+                        </div>
 
-function closeUpdateModal() {
-    // Hide the modal
-    document.getElementById('updateModal').classList.add('hidden');
-}
+                        <div class="w-1/3">
+                            <label for="address" class="block font-bold mb-2">{{ __('messages.users.updateAddress') }}</label>
+                            <input type="text" id="address" name="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500s" placeholder="Enter Address">
+                        </div>
+                    </div>
 
-</script>
+                    <div class="flex space-x-4 py-2">
+                        <div class="w-1/3">
+                            <label for="email" class="block font-bold mb-2">{{ __('messages.users.updateEmail') }}</label>
+                            <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500s" placeholder="Enter Email">
+                        </div>
+
+                        <div class="w-1/3">
+                            <label for="password" class="block font-bold mb-2">{{ __('messages.users.updatePassword') }}</label>
+                            <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500s" placeholder="Enter Password">
+                        </div>
+
+                        <div class="w-1/3">
+                            <label for="confirm_Password" class="block font-bold mb-2">{{ __('messages.users.updateConfPassword') }}</label>
+                            <input type="password" id="confirm_Password" name="confirm_Password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500s" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                    <!-- Action Buttons -->
+                    <!-- div :flex justify-end mt-6
+                    class: px-4 py-2 bg-gray-400 text-white rounded-lg mr-4 -->
+                    <!-- Action Buttons -->
+                    <div class="flex items-center justify-between">
+                        <button type="button" onclick="closeUpdateModal()" class="bg-gray-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                           {{ __('messages.users.updateCancelBtn') }}
+                        </button>
+                        <button type="submit" class="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            {{ __('messages.users.update_updateBtn') }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <script>
+            function openUpdateModal(id, firstName, lastName, id_number, phoneNumber, country, address, email, password, confirm_Password) {
+                // Log data to ensure it's being passed correctly
+                console.log(id, firstName, lastName, id_number, phoneNumber, country, address, email, password, confirm_Password);
+
+                // Set form field values dynamically
+                document.getElementById('user_id').value = id;
+                document.getElementById('first_name').value = firstName;
+                document.getElementById('last_name').value = lastName;
+                document.getElementById('id_number').value = id_number;
+                document.getElementById('phone_number').value = phoneNumber;
+                document.getElementById('country').value = country;
+                document.getElementById('address').value = address;
+                document.getElementById('email').value = email;
+                document.getElementById('password').value = password;
+                document.getElementById('confirm_Password').value = confirm_Password;
+
+                // Show the modal
+                document.getElementById('updateModal').classList.remove('hidden');
+                document.getElementById('updateModal').classList.add('block');
+            }
+
+            function closeUpdateModal() {
+                // Hide the modal
+                document.getElementById('updateModal').classList.add('hidden');
+                document.getElementById('updateModal').classList.remove('block');
+            }
+
+        </script>
 
         <br>
         <nav aria-label="Page navigation example">
