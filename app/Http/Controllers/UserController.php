@@ -85,18 +85,20 @@ class UserController extends Controller
         'userId' => 'required',
         'first_name' => 'required|string',
         'last_name' => 'required|string',
+        'id_number' => 'required',
         'phone_number' => 'required|numeric',
         'country' => 'required|string',
         'address' => 'required|string',
         'password' => 'required|string',
-        'confirmPassword' => 'required|string',
+        'confirm_Password' => 'required|string',
     ]);
 
     $user = User::find($request->userId);
 
-    if ($request->password === $request->confirmPassword) {
+    if ($request->password === $request->confirm_Password) {
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
+        $user->id_number = $request->id_number;
         $user->phone_number = $request->phone_number;
         $user->country = $request->country;
         $user->address = $request->address;
